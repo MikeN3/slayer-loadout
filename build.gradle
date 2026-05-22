@@ -1,0 +1,56 @@
+/*
+ * Slayer Loadout - RuneLite Plugin Hub plugin
+ * Based on the official RuneLite example-plugin template:
+ *   https://github.com/runelite/example-plugin
+ */
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = 'https://repo.runelite.net'
+    }
+    mavenCentral()
+}
+
+def runeLiteVersion = 'latest.release'
+
+dependencies {
+    compileOnly group: 'net.runelite', name: 'client', version: runeLiteVersion
+
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation group: 'net.runelite', name: 'client', version: runeLiteVersion
+    testImplementation group: 'net.runelite', name: 'jshell', version: runeLiteVersion
+}
+
+group = 'com.slayerloadout'
+version = '1.0-SNAPSHOT'
+
+// The Plugin Hub builds plugins against the RuneLite client which targets Java 11.
+// Source/target 1.8 keeps maximum compatibility, matching the example-plugin template.
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnit()
+}
+
+// Convenience task for local development: launches the RuneLite client with this
+// plugin side-loaded. Run with `gradle run` (or the green arrow in IntelliJ).
+tasks.register('run', JavaExec) {
+    dependsOn 'classes', 'testClasses'
+    mainClass = 'com.slayerloadout.SlayerLoadoutPluginTest'
+    classpath = sourceSets.test.runtimeClasspath
+    // RuneLite's dev plugin loader (ExternalPluginManager.loadBuiltin) requires
+    // Java assertions to be enabled, so launch the client with -ea.
+    jvmArgs = ['-ea']
+}
