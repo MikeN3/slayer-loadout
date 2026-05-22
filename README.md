@@ -86,3 +86,4 @@ This plugin is built to fit within RuneLite / Jagex rules: it only **reads** gam
 ## License
 
 BSD 2-Clause. See [LICENSE](LICENSE).
+# slayer-loadout
