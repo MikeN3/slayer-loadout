@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,6 +28,10 @@ public class BisDataService
 	private final java.util.List<String> primaryNames = new java.util.ArrayList<>();
 	private boolean loaded = false;
 
+	// Reuse the client's shared Gson (Plugin Hub forbids creating fresh Gson instances).
+	@Inject
+	private Gson gson;
+
 	public synchronized void load()
 	{
 		if (loaded)
@@ -43,7 +48,6 @@ public class BisDataService
 				return;
 			}
 
-			final Gson gson = new Gson();
 			final BisData data = gson.fromJson(
 				new InputStreamReader(is, StandardCharsets.UTF_8), BisData.class);
 
