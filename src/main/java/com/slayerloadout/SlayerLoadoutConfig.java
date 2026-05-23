@@ -75,6 +75,17 @@ public interface SlayerLoadoutConfig extends Config
 		return true;
 	}
 
+	@ConfigItem(
+		keyName = "preferBlowpipe",
+		name = "Prefer blowpipe",
+		description = "When enabled, if you own a Toxic/Blazing blowpipe it overrides the recommended ranged weapon and uses your best darts as ammo. Off by default.",
+		position = 6
+	)
+	default boolean preferBlowpipe()
+	{
+		return false;
+	}
+
 	// Persisted internally so the last task survives a client restart. Hidden from the UI.
 	@ConfigItem(
 		keyName = "lastTask",

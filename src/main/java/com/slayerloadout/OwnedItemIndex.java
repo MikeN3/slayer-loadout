@@ -137,6 +137,20 @@ public class OwnedItemIndex
 				return entry.getValue();
 			}
 		}
+
+		// Slayer helmet colour/boss variants (Black, Red, Hydra, Twisted, Tztok, ...)
+		// all END with the base name, so a suffix match catches them. The "(i)" curated
+		// entry is listed first, so imbued variants are preferred over un-imbued.
+		if (key.equals("slayer helmet (i)") || key.equals("slayer helmet"))
+		{
+			for (Map.Entry<String, OwnedItem> entry : byName.entrySet())
+			{
+				if (entry.getKey().endsWith(key))
+				{
+					return entry.getValue();
+				}
+			}
+		}
 		return null;
 	}
 
@@ -163,6 +177,13 @@ public class OwnedItemIndex
 			{
 				continue;
 			}
+			// A Void helm only helps its own style (it unlocks that style's Void set
+			// bonus and gives nothing useful otherwise), so never let the melee helm
+			// fill a Ranged/Magic head slot, and vice-versa.
+			if (slot == GearSlot.HEAD && isMismatchedVoidHelm(item.name, style))
+			{
+				continue;
+			}
 			final int s = item.score(style);
 			if (s > bestScore)
 			{
@@ -171,6 +192,33 @@ public class OwnedItemIndex
 			}
 		}
 		return best;
+	}
+
+	/**
+	 * True if {@code name} is a Void Knight helm built for a combat style other than
+	 * {@code style}. The Void melee/ranger/mage helms are style-locked, so each must
+	 * only ever appear in its own style's loadout.
+	 */
+	private static boolean isMismatchedVoidHelm(String name, AttackStyle style)
+	{
+		final String n = name.toLowerCase(Locale.ENGLISH);
+		if (!n.contains("void"))
+		{
+			return false;
+		}
+		if (n.contains("melee"))
+		{
+			return style != AttackStyle.MELEE;
+		}
+		if (n.contains("ranger"))
+		{
+			return style != AttackStyle.RANGED;
+		}
+		if (n.contains("mage"))
+		{
+			return style != AttackStyle.MAGIC;
+		}
+		return false;
 	}
 
 	/** All owned items in a slot (used for weapon-aware ammo selection). */

@@ -72,6 +72,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -151,6 +152,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -228,6 +230,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -305,6 +308,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -384,6 +388,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -461,6 +466,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -538,6 +544,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -615,6 +622,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -692,6 +700,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -769,6 +778,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -852,6 +862,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -935,6 +946,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -1014,6 +1026,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -1091,6 +1104,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -1168,6 +1182,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -1245,6 +1260,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -1303,8 +1319,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -1370,6 +1387,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -1453,8 +1471,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -1520,6 +1539,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -1596,6 +1616,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -1672,6 +1693,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -1755,6 +1777,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -1817,8 +1840,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -1888,6 +1912,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -1964,6 +1989,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -2057,6 +2083,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -2144,6 +2171,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -2231,6 +2259,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -2289,8 +2318,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -2356,6 +2386,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -2445,6 +2476,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -2508,6 +2540,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -2594,6 +2627,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -2681,6 +2715,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -2770,6 +2805,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -2854,6 +2890,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -2912,8 +2949,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -3007,6 +3045,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -3065,8 +3104,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -3132,6 +3172,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -3218,6 +3259,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -3305,6 +3347,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -3392,6 +3435,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -3477,6 +3521,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         },
@@ -3534,8 +3579,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -3629,6 +3675,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -3715,6 +3762,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -3801,6 +3849,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -3888,6 +3937,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -3975,6 +4025,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -4034,6 +4085,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -4120,6 +4172,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -4212,6 +4265,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -4271,8 +4325,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -4339,6 +4394,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -4426,6 +4482,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -4484,8 +4541,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -4551,6 +4609,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -4636,6 +4695,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -4693,6 +4753,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -4776,6 +4837,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -4861,6 +4923,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -4919,8 +4982,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -4986,6 +5050,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -5077,6 +5142,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -5136,8 +5202,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -5204,6 +5271,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -5293,6 +5361,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -5351,8 +5420,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -5418,6 +5488,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -5501,6 +5572,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -5559,8 +5631,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -5626,6 +5699,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -5711,6 +5785,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -5766,8 +5841,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Broad bolts",
@@ -5828,6 +5904,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -5922,6 +5999,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -5986,8 +6064,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -6058,6 +6137,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -6144,6 +6224,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -6237,6 +6318,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -6296,8 +6378,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -6364,6 +6447,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -6455,6 +6539,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -6514,8 +6599,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -6582,6 +6668,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -6668,6 +6755,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -6726,8 +6814,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -6793,6 +6882,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -6866,8 +6956,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -6933,6 +7024,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -7025,6 +7117,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -7085,8 +7178,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -7153,6 +7247,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -7244,6 +7339,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -7304,8 +7400,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -7372,6 +7469,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -7463,6 +7561,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -7523,8 +7622,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -7591,6 +7691,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -7682,6 +7783,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -7742,8 +7844,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -7810,6 +7913,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -7901,6 +8005,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -7961,8 +8066,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -8029,6 +8135,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -8120,6 +8227,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -8180,8 +8288,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -8248,6 +8357,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -8339,6 +8449,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -8399,8 +8510,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -8467,6 +8579,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -8558,6 +8671,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -8618,8 +8732,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -8686,6 +8801,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -8777,6 +8893,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -8837,8 +8954,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -8905,6 +9023,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -8997,6 +9116,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -9057,8 +9177,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -9125,6 +9246,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -9216,6 +9338,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -9276,8 +9399,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -9344,6 +9468,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -9430,6 +9555,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -9488,8 +9614,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -9555,6 +9682,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -9641,6 +9769,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -9699,8 +9828,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -9766,6 +9896,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -9852,6 +9983,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -9910,8 +10042,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -9977,6 +10110,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -10063,6 +10197,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -10121,8 +10256,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -10188,6 +10324,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -10278,6 +10415,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -10337,8 +10475,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -10405,6 +10544,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -10495,6 +10635,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -10554,8 +10695,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -10622,6 +10764,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -10712,6 +10855,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -10771,8 +10915,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -10839,6 +10984,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -10925,6 +11071,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -11015,6 +11162,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -11073,8 +11221,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -11140,6 +11289,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -11226,6 +11376,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -11284,8 +11435,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -11351,6 +11503,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -11429,6 +11582,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -11518,6 +11672,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -11576,8 +11731,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -11643,6 +11799,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -11729,6 +11886,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -11787,8 +11945,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -11854,6 +12013,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -11938,8 +12098,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -12005,6 +12166,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -12092,6 +12254,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -12150,8 +12313,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -12217,6 +12381,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -12308,6 +12473,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -12369,8 +12535,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -12437,6 +12604,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -12521,6 +12689,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         },
@@ -12578,8 +12747,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -12678,6 +12848,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -12739,8 +12910,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -12807,6 +12979,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -12896,6 +13069,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -12955,8 +13129,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -13023,6 +13198,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -13106,6 +13282,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -13191,6 +13368,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -13249,8 +13427,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -13316,6 +13495,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -13388,8 +13568,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -13455,6 +13636,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -13545,6 +13727,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -13606,8 +13789,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -13674,6 +13858,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -13761,6 +13946,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -13819,8 +14005,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -13886,6 +14073,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -13961,6 +14149,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -14019,8 +14208,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -14086,6 +14276,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -14172,6 +14363,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -14230,8 +14422,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -14297,6 +14490,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -14382,6 +14576,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -14440,8 +14635,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -14507,6 +14703,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -14596,6 +14793,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -14655,8 +14853,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -14723,6 +14922,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -14800,6 +15000,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -14858,8 +15059,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -14925,6 +15127,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -15002,6 +15205,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -15060,8 +15264,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -15127,6 +15332,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -15209,6 +15415,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -15269,8 +15476,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -15337,6 +15545,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -15414,6 +15623,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -15472,8 +15682,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -15539,6 +15750,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -15615,6 +15827,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -15673,8 +15886,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -15740,6 +15954,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -15826,6 +16041,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -15884,8 +16100,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -15951,6 +16168,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -16037,6 +16255,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -16095,8 +16314,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -16162,6 +16382,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -16249,6 +16470,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -16307,8 +16529,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -16374,6 +16597,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -16459,6 +16683,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -16517,8 +16742,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -16584,6 +16810,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -16669,6 +16896,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -16727,8 +16955,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -16794,6 +17023,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -16879,6 +17109,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -16937,8 +17168,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -17004,6 +17236,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -17089,6 +17322,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -17147,8 +17381,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -17214,6 +17449,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -17302,6 +17538,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -17360,8 +17597,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -17427,6 +17665,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -17523,6 +17762,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -17585,8 +17825,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -17656,6 +17897,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -17732,6 +17974,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -17816,6 +18059,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -17878,8 +18122,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -17949,6 +18194,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -18025,6 +18271,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -18083,8 +18330,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -18150,6 +18398,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -18227,6 +18476,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -18285,8 +18535,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -18352,6 +18603,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -18429,6 +18681,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -18487,8 +18740,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -18554,6 +18808,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -18631,6 +18886,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -18689,8 +18945,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -18756,6 +19013,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -18833,6 +19091,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -18891,8 +19150,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -18958,6 +19218,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -19035,6 +19296,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -19093,8 +19355,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -19160,6 +19423,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -19237,6 +19501,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -19295,8 +19560,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -19362,6 +19628,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -19445,6 +19712,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -19507,8 +19775,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -19578,6 +19847,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -19669,6 +19939,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -19729,8 +20000,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -19797,6 +20069,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -19892,6 +20165,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -19956,8 +20230,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -20028,6 +20303,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -20114,6 +20390,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -20172,8 +20449,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -20239,6 +20517,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -20325,6 +20604,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -20383,8 +20663,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -20450,6 +20731,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -20534,8 +20816,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -20601,6 +20884,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -20692,6 +20976,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -20751,8 +21036,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -20819,6 +21105,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -20897,6 +21184,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -20955,8 +21243,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -21022,6 +21311,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }
@@ -21108,6 +21398,7 @@
           "RING": [
             "Ultor ring",
             "Berserker ring (i)",
+            "Lightbearer",
             "Berserker ring",
             "Warrior ring"
           ]
@@ -21166,8 +21457,9 @@
           ],
           "RING": [
             "Venator ring",
-            "Archers ring (i)",
-            "Archers ring"
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
           ],
           "AMMO": [
             "Dragon arrow",
@@ -21233,6 +21525,7 @@
           "RING": [
             "Magus ring",
             "Seers ring (i)",
+            "Lightbearer",
             "Seers ring"
           ]
         }

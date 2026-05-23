@@ -59,7 +59,8 @@ public final class DpsCalculator
 		final boolean undead = attributes != null && attributes.contains("undead");
 		final boolean dragon = attributes != null && attributes.contains("dragon");
 		final boolean demon = attributes != null && attributes.contains("demon");
-		final boolean voidSet = hasVoid(loadout);
+		final VoidKind vk = voidKind(loadout, style);
+		final boolean voidSet = vk != VoidKind.NONE;
 
 		final double[] gm = generalMultiplier(loadout, undead);
 		double accMult = gm[0];
@@ -118,6 +119,10 @@ public final class DpsCalculator
 				accMult *= clamp(accBoost, 0.0, 1.40);
 				dmgMult *= clamp(dmgBoost, 0.0, 2.50);
 			}
+			if (vk == VoidKind.ELITE)
+			{
+				dmgMult *= 1.025; // Elite Void ranged: +2.5% damage on top of the base +10% set.
+			}
 			final int rapidSpeed = Math.max(1, speed - 1);
 			return rangedDps(p, prayers, aRange, rangedStr, rapidSpeed, m.defenceLevel, m.defRange, accMult, dmgMult, voidSet);
 		}
@@ -128,6 +133,14 @@ public final class DpsCalculator
 		{
 			magicDmg *= 3;
 			aMagic *= 3;
+		}
+		if (vk != VoidKind.NONE)
+		{
+			accMult *= 1.45; // Void mage set: +45% magic accuracy.
+			if (vk == VoidKind.ELITE)
+			{
+				magicDmg += 5; // Elite Void: +5% magic damage.
+			}
 		}
 		final int baseMax = magicBaseMax(wname, p.magic);
 		final int magicSpeed = isPoweredStaffName(wname) ? speed : 5;
@@ -249,16 +262,44 @@ public final class DpsCalculator
 			|| wname.contains("shadow") || wname.contains("sceptre");
 	}
 
-	private static boolean hasVoid(Map<GearSlot, OwnedItemIndex.OwnedItem> loadout)
+	private enum VoidKind
 	{
-		return contains(loadout, GearSlot.HEAD, "void") && contains(loadout, GearSlot.BODY, "void")
-			&& contains(loadout, GearSlot.LEGS, "void") && contains(loadout, GearSlot.HANDS, "void");
+		NONE, REGULAR, ELITE
 	}
 
-	private static boolean contains(Map<GearSlot, OwnedItemIndex.OwnedItem> loadout, GearSlot slot, String token)
+	/**
+	 * Detect a complete, style-correct Void Knight set in the loadout. The worn helm
+	 * must match {@code style} (melee/ranger/mage), and the gloves plus a top and robe
+	 * (regular or elite) are all required. ELITE is only returned when BOTH the top
+	 * and robe are the elite versions, matching the in-game set effect.
+	 */
+	private static VoidKind voidKind(Map<GearSlot, OwnedItemIndex.OwnedItem> loadout, AttackStyle style)
 	{
-		final OwnedItemIndex.OwnedItem it = loadout.get(slot);
-		return it != null && it.name.toLowerCase(Locale.ENGLISH).contains(token);
+		final OwnedItemIndex.OwnedItem head = loadout.get(GearSlot.HEAD);
+		final OwnedItemIndex.OwnedItem body = loadout.get(GearSlot.BODY);
+		final OwnedItemIndex.OwnedItem legs = loadout.get(GearSlot.LEGS);
+		final OwnedItemIndex.OwnedItem hands = loadout.get(GearSlot.HANDS);
+		if (head == null || body == null || legs == null || hands == null)
+		{
+			return VoidKind.NONE;
+		}
+		final String h = head.name.toLowerCase(Locale.ENGLISH);
+		final String b = body.name.toLowerCase(Locale.ENGLISH);
+		final String l = legs.name.toLowerCase(Locale.ENGLISH);
+		final String g = hands.name.toLowerCase(Locale.ENGLISH);
+		if (!h.contains("void") || !b.contains("void") || !l.contains("void") || !g.contains("void"))
+		{
+			return VoidKind.NONE;
+		}
+		final boolean helmMatches =
+			(style == AttackStyle.MELEE && h.contains("melee"))
+			|| (style == AttackStyle.RANGED && h.contains("ranger"))
+			|| (style == AttackStyle.MAGIC && h.contains("mage"));
+		if (!helmMatches)
+		{
+			return VoidKind.NONE;
+		}
+		return (b.contains("elite") && l.contains("elite")) ? VoidKind.ELITE : VoidKind.REGULAR;
 	}
 
 	private static double clamp(double v, double lo, double hi)

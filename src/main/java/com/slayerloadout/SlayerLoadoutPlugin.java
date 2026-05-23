@@ -17,6 +17,7 @@ import net.runelite.api.ItemContainer;
 import net.runelite.api.Skill;
 import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.GameTick;
 import net.runelite.api.events.ItemContainerChanged;
 import net.runelite.api.events.StatChanged;
 import net.runelite.client.callback.ClientThread;
@@ -67,6 +68,9 @@ public class SlayerLoadoutPlugin extends Plugin
 
 	// Snapshot of owned items, rebuilt on the client thread and read on the EDT.
 	private volatile OwnedItemIndex owned = new OwnedItemIndex();
+
+	// Set when a watched item container changes; debounced to one rebuild per game tick.
+	private volatile boolean ownedDirty;
 
 	// Transient in-panel override: a monster the user typed to preview. Takes
 	// precedence over the auto-detected task until they hit "Back to my task".
@@ -159,6 +163,20 @@ public class SlayerLoadoutPlugin extends Plugin
 			|| id == InventoryID.INVENTORY.getId()
 			|| id == InventoryID.EQUIPMENT.getId())
 		{
+			// Don't recompute on every container event: depositing while the bank is
+			// open fires INVENTORY/EQUIPMENT (now empty) a tick before BANK updates, so
+			// a mid-transaction snapshot is briefly missing those items. Flag it dirty
+			// and rebuild once on the next game tick off a consistent snapshot.
+			ownedDirty = true;
+		}
+	}
+
+	@Subscribe
+	public void onGameTick(GameTick event)
+	{
+		if (ownedDirty)
+		{
+			ownedDirty = false;
 			refreshOwned();
 			rebuild();
 		}
@@ -333,6 +351,7 @@ public class SlayerLoadoutPlugin extends Plugin
 		final boolean override = hasPanelOverride();
 		final boolean preferBroadBolts = config.preferBroadBolts();
 		final boolean assumePrayers = config.assumePrayers();
+		final boolean preferBlowpipe = config.preferBlowpipe();
 		final PlayerStats stats = playerStats;
 		final MonsterLoadout loadout = task == null ? null : bisData.find(task);
 		final OwnedItemIndex snapshot = owned;
@@ -341,7 +360,8 @@ public class SlayerLoadoutPlugin extends Plugin
 		{
 			if (panel != null)
 			{
-				panel.update(task, override, preferBroadBolts, assumePrayers, stats, loadout, snapshot, itemManager);
+				panel.update(task, override, preferBroadBolts, assumePrayers, preferBlowpipe, stats, loadout,
+					snapshot, itemManager);
 			}
 		});
 	}

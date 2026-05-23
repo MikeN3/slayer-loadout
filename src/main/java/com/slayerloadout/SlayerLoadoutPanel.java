@@ -72,6 +72,7 @@ class SlayerLoadoutPanel extends PluginPanel
 	// Settings/state mirrored from the plugin on each update.
 	private boolean preferBroadBolts = true;
 	private boolean assumePrayers = true;
+	private boolean preferBlowpipe = false;
 	private PlayerStats playerStats = PlayerStats.maxed();
 
 	SlayerLoadoutPanel(TaskOverrideListener listener)
@@ -172,16 +173,19 @@ class SlayerLoadoutPanel extends PluginPanel
 	 * @param override         true if this is a manually-entered monster (not auto-detected)
 	 * @param preferBroadBolts setting: use broad bolts for crossbow ammo when owned
 	 * @param assumePrayers    setting: include offensive prayers in the DPS estimate
+	 * @param preferBlowpipe   setting: force a blowpipe as the ranged weapon when owned
 	 * @param playerStats      the player's (boosted) combat levels
 	 * @param loadout          dataset entry for the task (may be null if unknown)
 	 * @param owned            snapshot of items the player owns
 	 * @param itemManager      used to fetch item icons
 	 */
 	void update(String taskName, boolean override, boolean preferBroadBolts, boolean assumePrayers,
-		PlayerStats playerStats, MonsterLoadout loadout, OwnedItemIndex owned, ItemManager itemManager)
+		boolean preferBlowpipe, PlayerStats playerStats, MonsterLoadout loadout, OwnedItemIndex owned,
+		ItemManager itemManager)
 	{
 		this.preferBroadBolts = preferBroadBolts;
 		this.assumePrayers = assumePrayers;
+		this.preferBlowpipe = preferBlowpipe;
 		this.playerStats = playerStats != null ? playerStats : PlayerStats.maxed();
 
 		// The "back to my task" button is only relevant while previewing an override.
@@ -345,15 +349,29 @@ class SlayerLoadoutPanel extends PluginPanel
 
 			OwnedItemIndex.OwnedItem bestWeapon = null;
 			double bestDps = -1;
-			for (OwnedItemIndex.OwnedItem w : owned.weaponsForStyle(style))
+			final OwnedItemIndex.OwnedItem forcedBlowpipe =
+				(style == AttackStyle.RANGED && preferBlowpipe) ? findBlowpipe(owned) : null;
+			if (forcedBlowpipe != null)
 			{
-				calcLoadout.put(GearSlot.WEAPON, w);
-				final double d = DpsCalculator.computeDps(style, playerStats, assumePrayers, calcLoadout,
+				// User opted to always use the blowpipe; report its DPS but don't let
+				// the loop pick anything else.
+				calcLoadout.put(GearSlot.WEAPON, forcedBlowpipe);
+				bestWeapon = forcedBlowpipe;
+				bestDps = DpsCalculator.computeDps(style, playerStats, assumePrayers, calcLoadout,
 					mstats, loadout.getAttributes());
-				if (d > bestDps)
+			}
+			else
+			{
+				for (OwnedItemIndex.OwnedItem w : owned.weaponsForStyle(style))
 				{
-					bestDps = d;
-					bestWeapon = w;
+					calcLoadout.put(GearSlot.WEAPON, w);
+					final double d = DpsCalculator.computeDps(style, playerStats, assumePrayers, calcLoadout,
+						mstats, loadout.getAttributes());
+					if (d > bestDps)
+					{
+						bestDps = d;
+						bestWeapon = w;
+					}
 				}
 			}
 
@@ -377,6 +395,37 @@ class SlayerLoadoutPanel extends PluginPanel
 				calcLoadout.put(GearSlot.WEAPON, chosenWeapon);
 				dps = DpsCalculator.computeDps(style, playerStats, assumePrayers, calcLoadout,
 					mstats, loadout.getAttributes());
+			}
+
+			// Void / Elite Void: try the complete void set (when owned) as a candidate
+			// and adopt it if its set bonus beats the best mix-and-match armour. The DPS
+			// calculator weighs void's bonus against e.g. the Slayer helmet's, so void is
+			// only chosen when it genuinely wins.
+			if (dps != null)
+			{
+				final Map<GearSlot, OwnedItemIndex.OwnedItem> voidPieces = voidSetFor(style, owned);
+				if (voidPieces != null)
+				{
+					final Map<GearSlot, OwnedItemIndex.OwnedItem> voidLoadout = new EnumMap<>(GearSlot.class);
+					for (Map.Entry<GearSlot, Pick> e : picks.entrySet())
+					{
+						if (e.getValue().item != null)
+						{
+							voidLoadout.put(e.getKey(), e.getValue().item);
+						}
+					}
+					voidLoadout.putAll(voidPieces);
+					final double voidDps = DpsCalculator.computeDps(style, playerStats, assumePrayers,
+						voidLoadout, mstats, loadout.getAttributes());
+					if (voidDps > dps)
+					{
+						dps = voidDps;
+						for (Map.Entry<GearSlot, OwnedItemIndex.OwnedItem> e : voidPieces.entrySet())
+						{
+							picks.put(e.getKey(), new Pick(e.getValue(), false, true, "- none owned"));
+						}
+					}
+				}
 			}
 		}
 
@@ -467,12 +516,25 @@ class SlayerLoadoutPanel extends PluginPanel
 			}
 			else if (owned != null && type != AmmoType.UNKNOWN)
 			{
-				if (type == AmmoType.BOLTS && preferBroadBolts)
+				if (type == AmmoType.BOLTS)
 				{
-					chosen = owned.match("Amethyst broad bolts");
-					if (chosen == null)
+					// Boss tasks: enchanted dragon bolts (Ruby/Diamond) outdamage broad bolts.
+					if (loadout.isBoss())
 					{
-						chosen = owned.match("Broad bolts");
+						chosen = owned.match("Ruby dragon bolts (e)");
+						if (chosen == null)
+						{
+							chosen = owned.match("Diamond dragon bolts (e)");
+						}
+					}
+					// Otherwise broad bolts hit almost every slayer monster.
+					if (chosen == null && preferBroadBolts)
+					{
+						chosen = owned.match("Amethyst broad bolts");
+						if (chosen == null)
+						{
+							chosen = owned.match("Broad bolts");
+						}
 					}
 				}
 				if (chosen == null)
@@ -483,6 +545,16 @@ class SlayerLoadoutPanel extends PluginPanel
 		}
 		else
 		{
+			// Blowpipe override (ranged weapon): when enabled and a blowpipe is owned,
+			// force it regardless of the curated list or DPS pick.
+			if (slot == GearSlot.WEAPON && style == AttackStyle.RANGED && preferBlowpipe && owned != null)
+			{
+				final OwnedItemIndex.OwnedItem bp = findBlowpipe(owned);
+				if (bp != null)
+				{
+					return new Pick(bp, true, false, "- none owned");
+				}
+			}
 			final List<String> candidates = styleMap.get(slot.name());
 			if (owned != null && candidates != null)
 			{
@@ -637,6 +709,61 @@ class SlayerLoadoutPanel extends PluginPanel
 			}
 		}
 		return best;
+	}
+
+	/** The player's owned blowpipe (Toxic / Blazing), or null if they own none. */
+	private static OwnedItemIndex.OwnedItem findBlowpipe(OwnedItemIndex owned)
+	{
+		if (owned == null)
+		{
+			return null;
+		}
+		for (OwnedItemIndex.OwnedItem w : owned.itemsInSlot(GearSlot.WEAPON))
+		{
+			if (w.name.toLowerCase(Locale.ENGLISH).contains("blowpipe"))
+			{
+				return w;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * The four worn Void Knight pieces for {@code style} if the player owns a complete
+	 * set: the style-matching helm, gloves, and a top + robe. Elite top/robe are
+	 * preferred over the regular versions when owned. Returns null if any piece is
+	 * missing. (The Void Knight mace and seal are intentionally excluded.)
+	 */
+	private static Map<GearSlot, OwnedItemIndex.OwnedItem> voidSetFor(AttackStyle style, OwnedItemIndex owned)
+	{
+		if (owned == null)
+		{
+			return null;
+		}
+		final String helmName = style == AttackStyle.MELEE ? "Void melee helm"
+			: style == AttackStyle.RANGED ? "Void ranger helm" : "Void mage helm";
+		final OwnedItemIndex.OwnedItem helm = owned.match(helmName);
+		final OwnedItemIndex.OwnedItem gloves = owned.match("Void knight gloves");
+		OwnedItemIndex.OwnedItem top = owned.match("Elite void top");
+		if (top == null)
+		{
+			top = owned.match("Void knight top");
+		}
+		OwnedItemIndex.OwnedItem robe = owned.match("Elite void robe");
+		if (robe == null)
+		{
+			robe = owned.match("Void knight robe");
+		}
+		if (helm == null || gloves == null || top == null || robe == null)
+		{
+			return null;
+		}
+		final Map<GearSlot, OwnedItemIndex.OwnedItem> set = new EnumMap<>(GearSlot.class);
+		set.put(GearSlot.HEAD, helm);
+		set.put(GearSlot.BODY, top);
+		set.put(GearSlot.LEGS, robe);
+		set.put(GearSlot.HANDS, gloves);
+		return set;
 	}
 
 	/** Defence-reducing spec weapons, best first; suggested on boss tasks. */
