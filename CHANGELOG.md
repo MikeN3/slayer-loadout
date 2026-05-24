@@ -8,6 +8,12 @@ rather than a version tag, so version numbers below are a human-readable conveni
 
 ## [Unreleased]
 
+_Nothing yet._
+
+## [1.3.0] - 2026-05-24
+
+Released via [runelite/plugin-hub#12163](https://github.com/runelite/plugin-hub/pull/12163).
+
 ### Added
 - Amulet of rancour (melee amulet) and Avernic treads (melee boots) added to the
   melee gear lists.
