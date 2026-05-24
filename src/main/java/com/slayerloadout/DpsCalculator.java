@@ -62,7 +62,7 @@ public final class DpsCalculator
 		final VoidKind vk = voidKind(loadout, style);
 		final boolean voidSet = vk != VoidKind.NONE;
 
-		final double[] gm = generalMultiplier(loadout, undead);
+		final double[] gm = generalMultiplier(loadout, undead, style);
 		double accMult = gm[0];
 		double dmgMult = gm[1];
 
@@ -209,24 +209,58 @@ public final class DpsCalculator
 		return attRoll / (2.0 * (defRoll + 1.0));
 	}
 
-	private static double[] generalMultiplier(Map<GearSlot, OwnedItemIndex.OwnedItem> loadout, boolean undead)
+	private static double[] generalMultiplier(Map<GearSlot, OwnedItemIndex.OwnedItem> loadout, boolean undead,
+		AttackStyle style)
 	{
 		final OwnedItemIndex.OwnedItem neck = loadout.get(GearSlot.NECK);
 		final OwnedItemIndex.OwnedItem head = loadout.get(GearSlot.HEAD);
-		final boolean salve = neck != null && neck.name.toLowerCase(Locale.ENGLISH).contains("salve amulet");
+		final String neckName = neck == null ? "" : neck.name.toLowerCase(Locale.ENGLISH);
+
+		// Salve amulet vs undead. It does NOT stack with the slayer helm / black mask:
+		// when both are worn only the salve bonus applies, so salve takes precedence here.
+		if (undead && neckName.contains("salve amulet"))
+		{
+			final double m = 1.0 + salveBonus(neckName, style);
+			return new double[]{m, m};
+		}
+
 		final boolean slayerHelm = head != null
 			&& (head.name.toLowerCase(Locale.ENGLISH).contains("slayer helmet")
 			|| head.name.toLowerCase(Locale.ENGLISH).contains("black mask"));
-		double mult = 1.0;
-		if (undead && salve)
+		if (slayerHelm)
 		{
-			mult = 1.20;
+			final double m = 1.0 + 1.0 / 6.0;
+			return new double[]{m, m};
 		}
-		else if (slayerHelm)
+		return new double[]{1.0, 1.0};
+	}
+
+	/**
+	 * Salve amulet accuracy/damage bonus vs undead, by variant and style. Base/(e)
+	 * help melee only (16.67% / 20%); (i)/(ei) also cover ranged and magic — (i) gives
+	 * 16.67% melee &amp; ranged and 15% magic, (ei) gives 20% to all three styles.
+	 */
+	private static double salveBonus(String neckName, AttackStyle style)
+	{
+		final boolean ei = neckName.contains("(ei)");
+		final boolean imbued = ei || neckName.contains("(i)");
+		final boolean enchanted = ei || neckName.contains("(e)");
+		final double high = 0.20;
+		final double low = 1.0 / 6.0; // 16.67%
+		if (style == AttackStyle.MELEE)
 		{
-			mult = 1.0 + 1.0 / 6.0;
+			return enchanted ? high : low;
 		}
-		return new double[]{mult, mult};
+		// Ranged and Magic only benefit from an imbued salve.
+		if (!imbued)
+		{
+			return 0.0;
+		}
+		if (style == AttackStyle.MAGIC)
+		{
+			return ei ? high : 0.15;
+		}
+		return ei ? high : low; // RANGED
 	}
 
 	private static int magicBaseMax(String wname, int magicLevel)
@@ -248,7 +282,7 @@ public final class DpsCalculator
 		{
 			return third - 5;
 		}
-		if (wname.contains("sceptre"))
+		if (wname.contains("accursed sceptre"))
 		{
 			return third - 3;
 		}
@@ -259,7 +293,7 @@ public final class DpsCalculator
 	private static boolean isPoweredStaffName(String wname)
 	{
 		return wname.contains("trident") || wname.contains("sanguinesti")
-			|| wname.contains("shadow") || wname.contains("sceptre");
+			|| wname.contains("shadow") || wname.contains("accursed sceptre");
 	}
 
 	private enum VoidKind

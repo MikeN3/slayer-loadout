@@ -11600,7 +11600,7 @@
       "difficulty": "Medium",
       "recommendedStyle": "MELEE",
       "attributes": [],
-      "meleeWeakness": null,
+      "meleeWeakness": "STAB",
       "mageSpell": null,
       "combat": {
         "defenceLevel": 43,
@@ -11613,7 +11613,15 @@
         "hitpoints": 60,
         "size": 1
       },
-      "notes": "Shamans drop the Dragon warhammer.",
+      "notes": "Shamans drop the Dragon warhammer. Regular lizardmen are weak to stab (cannon/melee them); range shamans and pray Protect from Missiles.",
+      "requiredGear": [
+        "Shayzien helm (5)",
+        "Shayzien body (5)",
+        "Shayzien greaves (5)",
+        "Shayzien boots (5)",
+        "Shayzien gloves (5)"
+      ],
+      "requiredGearNote": "Lizardman shamans' poison spit can hit up to 30 - a full set of tier-5 Shayzien armour blocks it entirely. With the Hard Kourend & Kebos Diary, Captain Cleive can make your Slayer helmet count as the Shayzien helm, so you keep its bonus. The regular lizardmen don't need Shayzien.",
       "styles": {
         "MELEE": {
           "HEAD": [
@@ -20099,12 +20107,10 @@
         "hitpoints": 750,
         "size": 5
       },
-      "notes": "Requires Dragon Slayer II. Extended super antifire + a Dragon hunter weapon; handle the acid and zombified-spawn phases.",
+      "notes": "Undead dragon: Salve amulet (ei) beats Anguish here. Bring an extended super antifire AND an anti-dragon/Dragonfire ward (or pray Protect from Missiles). Dragon hunter crossbow with Ruby dragon bolts (e) until ~33% HP, then Diamond dragon bolts (e). Requires Dragon Slayer II.",
       "styles": {
         "MELEE": {
           "HEAD": [
-            "Slayer helmet (i)",
-            "Slayer helmet",
             "Torva full helm",
             "Neitiznot faceguard",
             "Helm of neitiznot",
@@ -20123,15 +20129,14 @@
             "Salve amulet",
             "Amulet of torture",
             "Amulet of fury",
-            "Amulet of glory",
-            "Amulet of strength"
+            "Amulet of glory"
           ],
           "WEAPON": [
             "Dragon hunter lance",
-            "Scythe of vitur",
-            "Abyssal tentacle",
-            "Abyssal whip",
-            "Dragon scimitar"
+            "Osmumten's fang",
+            "Ghrazi rapier",
+            "Zamorakian hasta",
+            "Abyssal tentacle"
           ],
           "BODY": [
             "Torva platebody",
@@ -20140,16 +20145,14 @@
             "Rune platebody"
           ],
           "SHIELD": [
-            "Dragonfire shield",
-            "Dragonfire ward",
-            "Anti-dragon shield",
             "Avernic defender",
-            "Dragon defender"
+            "Dragonfire shield",
+            "Dragon defender",
+            "Anti-dragon shield"
           ],
           "LEGS": [
             "Torva platelegs",
             "Bandos tassets",
-            "Obsidian platelegs",
             "Rune platelegs"
           ],
           "HANDS": [
@@ -20172,7 +20175,6 @@
         },
         "RANGED": {
           "HEAD": [
-            "Slayer helmet (i)",
             "Masori mask (f)",
             "Armadyl helmet",
             "Archer helm"
@@ -20185,33 +20187,28 @@
           ],
           "NECK": [
             "Salve amulet(ei)",
-            "Salve amulet (e)",
             "Salve amulet(i)",
-            "Salve amulet",
             "Necklace of anguish",
             "Amulet of fury",
             "Amulet of glory"
           ],
           "WEAPON": [
             "Dragon hunter crossbow",
-            "Twisted bow",
-            "Bow of faerdhinen (c)",
             "Toxic blowpipe",
+            "Bow of faerdhinen (c)",
             "Armadyl crossbow",
-            "Rune crossbow",
-            "Magic shortbow"
+            "Rune crossbow"
           ],
           "BODY": [
             "Masori body (f)",
             "Armadyl chestplate",
-            "Black d'hide body",
-            "Karil's leathertop"
+            "Karil's leathertop",
+            "Black d'hide body"
           ],
           "SHIELD": [
             "Dragonfire ward",
-            "Anti-dragon shield",
             "Twisted buckler",
-            "Odium ward"
+            "Anti-dragon shield"
           ],
           "LEGS": [
             "Masori chaps (f)",
@@ -20235,76 +20232,10 @@
             "Archer ring"
           ],
           "AMMO": [
-            "Dragon arrow",
-            "Amethyst arrow",
-            "Rune arrow",
+            "Ruby dragon bolts (e)",
+            "Diamond dragon bolts (e)",
             "Dragon bolts",
-            "Diamond bolts (e)",
             "Broad bolts"
-          ]
-        },
-        "MAGIC": {
-          "HEAD": [
-            "Slayer helmet (i)",
-            "Ancestral hat",
-            "Virtus mask",
-            "Ahrim's hood"
-          ],
-          "CAPE": [
-            "Imbued zamorak cape",
-            "Imbued saradomin cape",
-            "Imbued guthix cape",
-            "God cape"
-          ],
-          "NECK": [
-            "Salve amulet(ei)",
-            "Salve amulet (e)",
-            "Salve amulet(i)",
-            "Salve amulet",
-            "Occult necklace",
-            "Amulet of fury",
-            "Amulet of glory"
-          ],
-          "WEAPON": [
-            "Dragon hunter wand",
-            "Tumeken's shadow",
-            "Sanguinesti staff",
-            "Trident of the swamp",
-            "Trident of the seas"
-          ],
-          "BODY": [
-            "Ancestral robe top",
-            "Virtus robe top",
-            "Ahrim's robetop",
-            "Mystic robe top"
-          ],
-          "SHIELD": [
-            "Elidinis' ward (f)",
-            "Arcane spirit shield",
-            "Mage's book",
-            "Tome of fire"
-          ],
-          "LEGS": [
-            "Ancestral robe bottom",
-            "Virtus robe bottom",
-            "Ahrim's robeskirt",
-            "Mystic robe bottom"
-          ],
-          "HANDS": [
-            "Tormented bracelet",
-            "Barrows gloves",
-            "Mystic gloves"
-          ],
-          "FEET": [
-            "Eternal boots",
-            "Infinity boots",
-            "Mystic boots"
-          ],
-          "RING": [
-            "Magus ring",
-            "Seers ring (i)",
-            "Lightbearer",
-            "Seers ring"
           ]
         }
       }

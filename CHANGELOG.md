@@ -19,10 +19,30 @@ In review via [runelite/plugin-hub#12157](https://github.com/runelite/plugin-hub
   accuracy; Elite magic +5% damage). A complete owned set is evaluated as a
   candidate loadout and chosen when it beats the best mix-and-match armour.
 - Lightbearer added to the ring options.
+- Salve amulet variants are now modelled in the DPS calculator, per variant and
+  style vs undead: base/(e) boost melee only (16.67% / 20%); (i) adds ranged
+  (16.67%) and magic (15%); (ei) gives 20% to all three styles. The bonus correctly
+  does not stack with the slayer helmet / black mask (salve takes precedence).
+- "Required gear" section: tasks with a mandatory/protective requirement now show it at
+  the top, with each item's owned/missing state and an explanatory note. First use:
+  Lizardmen — full tier-5 Shayzien armour to block Lizardman shaman poison (and the
+  Hard Kourend & Kebos Diary tip to let your Slayer helmet count as the Shayzien helm).
+  The mechanism is reusable for other special-requirement monsters.
 
 ### Changed
 - Boss tasks now prefer enchanted dragon bolts (Ruby/Diamond dragon bolts (e)) for
   bolt-firing weapons; regular Slayer tasks continue to use broad bolts.
+- Recommendations now recompute only while the bank is open (full visibility of what
+  you own); swapping gear during normal play no longer recalculates them.
+- Vorkath's recommended gear updated from the OSRS Wiki strategies: Salve amulet (ei)
+  over Anguish (undead), Dragon hunter crossbow with ruby/diamond dragon bolts (e),
+  Masori/Void and dragonfire-protection shields. The unused magic setup was removed.
+- Ranged weapon DPS now includes the ammo each weapon would fire, so crossbows are
+  judged with their bolts instead of at zero ranged strength (previously a bare rune
+  crossbow lost to a rune knife). Blowpipe DPS likewise now counts its darts.
+- With "Prefer broad bolts" on, the ranged weapon pick now favours a bolt-firing
+  weapon (crossbow) when you own broad bolts and a crossbow, even over a higher-DPS
+  thrown weapon like the rune knife. Turn the setting off for pure best-DPS selection.
 
 ### Fixed
 - Corrected an item-name mismatch in the dataset (`Archers ring` → `Archer ring`)
@@ -34,6 +54,19 @@ In review via [runelite/plugin-hub#12157](https://github.com/runelite/plugin-hub
   consistent snapshot.
 - A Void melee helm no longer leaks into the Ranged/Magic head slots; Void helms
   are now style-locked.
+- Lightbearer is now only recommended alongside a weapon that has a usable special
+  attack (it speeds special-attack energy regen), instead of being paired with
+  weapons that have no special.
+- Non-imbued Salve amulets (base / enchanted) are no longer suggested for Ranged or
+  Magic loadouts, where they give no bonus.
+- The Skull sceptre is no longer recommended as a Magic weapon (its name contains
+  "sceptre", which was being treated as a powered staff like the Accursed sceptre).
+  The powered-staff match is now limited to the Accursed sceptre, and teleport/novelty
+  items like the skull sceptre are excluded from gear recommendations.
+- Crossbows are no longer paired with bolts they cannot fire. The Dorgeshuun crossbow
+  (limited to bronze/iron/blurite/bone bolts) was being recommended with broad bolts
+  and winning over the rune crossbow on attack speed; it now only pairs with bolts it
+  can actually use, so the rune crossbow is chosen as intended.
 
 ## [1.0.0] - 2026-05-23
 

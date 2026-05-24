@@ -40,6 +40,16 @@ public class MonsterLoadout
 	/** Combat attributes (e.g. "dragon", "undead", "demon") for bane modifiers. */
 	List<String> attributes;
 
+	/**
+	 * Protective / mandatory gear for a special mechanic (e.g. Shayzien armour to block
+	 * lizardman shaman poison). Surfaced separately from the DPS loadout because it's a
+	 * survivability requirement, not a damage choice.
+	 */
+	List<String> requiredGear;
+
+	/** Explanation shown alongside {@link #requiredGear}. */
+	String requiredGearNote;
+
 	/** styleName -> (slotName -> ordered list of item names, best first). */
 	Map<String, Map<String, List<String>>> styles;
 
@@ -73,6 +83,18 @@ public class MonsterLoadout
 	List<String> getAttributes()
 	{
 		return attributes == null ? Collections.emptyList() : attributes;
+	}
+
+	/** @return mandatory/protective gear item names for this task, or an empty list. */
+	List<String> getRequiredGear()
+	{
+		return requiredGear == null ? Collections.emptyList() : requiredGear;
+	}
+
+	/** @return the note shown with the required gear, or null. */
+	String getRequiredGearNote()
+	{
+		return (requiredGearNote == null || requiredGearNote.trim().isEmpty()) ? null : requiredGearNote.trim();
 	}
 
 	/** @return "STAB"/"SLASH"/"CRUSH", or null if no weakness is set/recognised. */

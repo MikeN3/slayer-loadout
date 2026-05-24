@@ -158,15 +158,13 @@ public class SlayerLoadoutPlugin extends Plugin
 	@Subscribe
 	public void onItemContainerChanged(ItemContainerChanged event)
 	{
-		final int id = event.getContainerId();
-		if (id == InventoryID.BANK.getId()
-			|| id == InventoryID.INVENTORY.getId()
-			|| id == InventoryID.EQUIPMENT.getId())
+		// Only recompute when the BANK changes - i.e. while the bank is open, when we
+		// have full visibility of everything the player owns. We deliberately ignore
+		// INVENTORY and EQUIPMENT changes so that swapping gear during normal play does
+		// NOT recalculate the recommendation; it stays the "best you own" set captured
+		// at the bank. Debounced to one rebuild per game tick to coalesce rapid deposits.
+		if (event.getContainerId() == InventoryID.BANK.getId())
 		{
-			// Don't recompute on every container event: depositing while the bank is
-			// open fires INVENTORY/EQUIPMENT (now empty) a tick before BANK updates, so
-			// a mid-transaction snapshot is briefly missing those items. Flag it dirty
-			// and rebuild once on the next game tick off a consistent snapshot.
 			ownedDirty = true;
 		}
 	}
@@ -251,6 +249,31 @@ public class SlayerLoadoutPlugin extends Plugin
 			client.getBoostedSkillLevel(Skill.HITPOINTS));
 	}
 
+	/**
+	 * Teleport / novelty items that occupy a gear slot but provide no real combat use, so
+	 * they should never be recommended. (Items like the Ring of shadows DO carry offensive
+	 * bonuses, so they stay eligible and are intentionally NOT listed here.)
+	 */
+	private static final java.util.Set<String> EXCLUDED_GEAR = new java.util.HashSet<>(java.util.Arrays.asList(
+		"skull sceptre"));
+
+	private static boolean isExcludedGear(String name)
+	{
+		if (name == null)
+		{
+			return false;
+		}
+		final String n = name.toLowerCase(java.util.Locale.ENGLISH);
+		for (String frag : EXCLUDED_GEAR)
+		{
+			if (n.contains(frag))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 	private void addContainer(OwnedItemIndex index, InventoryID inventoryID)
 	{
 		final ItemContainer container = client.getItemContainer(inventoryID);
@@ -275,6 +298,13 @@ public class SlayerLoadoutPlugin extends Plugin
 			// Resolve noted items and placeholders back to the real item.
 			final int canonical = itemManager.canonicalize(rawId);
 			final String name = itemManager.getItemComposition(canonical).getName();
+
+			// Teleport / novelty items (e.g. the skull sceptre) wear an equipment slot but
+			// are not real combat gear - never recommend them.
+			if (isExcludedGear(name))
+			{
+				continue;
+			}
 
 			final ItemStats stats = itemManager.getItemStats(canonical);
 			GearSlot slot = null;

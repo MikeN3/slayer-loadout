@@ -238,6 +238,14 @@ class SlayerLoadoutPanel extends PluginPanel
 		gc.anchor = GridBagConstraints.NORTH;
 		gc.insets = new Insets(0, 0, 8, 0);
 
+		// Mandatory / protective gear for a special mechanic (e.g. Shayzien armour to
+		// block lizardman shaman poison). Shown first because survival comes before DPS.
+		if (!loadout.getRequiredGear().isEmpty())
+		{
+			content.add(buildRequiredSection(loadout, owned, itemManager), gc);
+			gc.gridy++;
+		}
+
 		// Boss tasks: suggest a defence-reducing special-attack weapon you own.
 		if (loadout.isBoss() && owned != null)
 		{
@@ -353,20 +361,25 @@ class SlayerLoadoutPanel extends PluginPanel
 				(style == AttackStyle.RANGED && preferBlowpipe) ? findBlowpipe(owned) : null;
 			if (forcedBlowpipe != null)
 			{
-				// User opted to always use the blowpipe; report its DPS but don't let
-				// the loop pick anything else.
-				calcLoadout.put(GearSlot.WEAPON, forcedBlowpipe);
+				// User opted to always use the blowpipe; report its DPS (with its darts).
 				bestWeapon = forcedBlowpipe;
-				bestDps = DpsCalculator.computeDps(style, playerStats, assumePrayers, calcLoadout,
-					mstats, loadout.getAttributes());
+				bestDps = dpsWithAmmo(forcedBlowpipe, style, loadout, owned, calcLoadout);
 			}
 			else
 			{
+				// 'Prefer broad bolts' should drive a bolt setup: when it is on and the player
+				// owns broad bolts plus a bolt-firing weapon, restrict the ranged pick to bolt
+				// weapons so a crossbow wins even over a higher-DPS thrown weapon (e.g. knives).
+				final boolean broadOnly = style == AttackStyle.RANGED && preferBroadBolts
+					&& ownsBroadBolts(owned) && hasBoltWeapon(owned);
 				for (OwnedItemIndex.OwnedItem w : owned.weaponsForStyle(style))
 				{
-					calcLoadout.put(GearSlot.WEAPON, w);
-					final double d = DpsCalculator.computeDps(style, playerStats, assumePrayers, calcLoadout,
-						mstats, loadout.getAttributes());
+					if (broadOnly && classifyWeapon(w.name) != AmmoType.BOLTS)
+					{
+						continue;
+					}
+					// Judge each weapon with the ammo it would fire (crossbows with their bolts).
+					final double d = dpsWithAmmo(w, style, loadout, owned, calcLoadout);
 					if (d > bestDps)
 					{
 						bestDps = d;
@@ -388,6 +401,11 @@ class SlayerLoadoutPanel extends PluginPanel
 				if (picks.containsKey(GearSlot.AMMO))
 				{
 					picks.put(GearSlot.AMMO, selectSlot(GearSlot.AMMO, style, loadout, owned, setBonusMap, chosenWeapon));
+				}
+				// RING too: Lightbearer is only valid alongside a special-attack weapon.
+				if (picks.containsKey(GearSlot.RING))
+				{
+					picks.put(GearSlot.RING, selectSlot(GearSlot.RING, style, loadout, owned, setBonusMap, chosenWeapon));
 				}
 			}
 			else if (chosenWeapon != null)
@@ -514,33 +532,9 @@ class SlayerLoadoutPanel extends PluginPanel
 			{
 				placeholder = "- no ammo needed";
 			}
-			else if (owned != null && type != AmmoType.UNKNOWN)
+			else
 			{
-				if (type == AmmoType.BOLTS)
-				{
-					// Boss tasks: enchanted dragon bolts (Ruby/Diamond) outdamage broad bolts.
-					if (loadout.isBoss())
-					{
-						chosen = owned.match("Ruby dragon bolts (e)");
-						if (chosen == null)
-						{
-							chosen = owned.match("Diamond dragon bolts (e)");
-						}
-					}
-					// Otherwise broad bolts hit almost every slayer monster.
-					if (chosen == null && preferBroadBolts)
-					{
-						chosen = owned.match("Amethyst broad bolts");
-						if (chosen == null)
-						{
-							chosen = owned.match("Broad bolts");
-						}
-					}
-				}
-				if (chosen == null)
-				{
-					chosen = bestOwnedAmmo(owned, type, style);
-				}
+				chosen = chooseAmmo(chosenWeapon, loadout, owned, style);
 			}
 		}
 		else
@@ -560,6 +554,18 @@ class SlayerLoadoutPanel extends PluginPanel
 			{
 				for (String candidate : candidates)
 				{
+					// Non-imbued Salve amulets only help melee; skip them for ranged/magic
+					// so a better neck (Anguish / Occult / etc.) is chosen instead.
+					if ((style == AttackStyle.RANGED || style == AttackStyle.MAGIC) && isNonImbuedSalve(candidate))
+					{
+						continue;
+					}
+					// Lightbearer only helps with a special-attack weapon (it speeds spec regen),
+					// so don't pair it with a weapon that has no usable special.
+					if ("lightbearer".equalsIgnoreCase(candidate) && !weaponHasSpecial(chosenWeapon))
+					{
+						continue;
+					}
 					final OwnedItemIndex.OwnedItem oi = owned.match(candidate);
 					if (oi != null)
 					{
@@ -691,13 +697,18 @@ class SlayerLoadoutPanel extends PluginPanel
 		return AmmoType.UNKNOWN;
 	}
 
-	private static OwnedItemIndex.OwnedItem bestOwnedAmmo(OwnedItemIndex owned, AmmoType type, AttackStyle style)
+	private static OwnedItemIndex.OwnedItem bestOwnedAmmo(OwnedItemIndex owned, AmmoType type, AttackStyle style,
+		OwnedItemIndex.OwnedItem weapon)
 	{
 		OwnedItemIndex.OwnedItem best = null;
 		int bestScore = Integer.MIN_VALUE;
 		for (OwnedItemIndex.OwnedItem oi : owned.itemsInSlot(GearSlot.AMMO))
 		{
 			if (classifyAmmo(oi.name) != type)
+			{
+				continue;
+			}
+			if (type == AmmoType.BOLTS && weapon != null && !canFireBolt(weapon.name, oi.name))
 			{
 				continue;
 			}
@@ -709,6 +720,122 @@ class SlayerLoadoutPanel extends PluginPanel
 			}
 		}
 		return best;
+	}
+
+	/**
+	 * Whether {@code weaponName} can actually fire {@code ammoName}. The Dorgeshuun
+	 * crossbow only fires bronze/iron/blurite/bone bolts - not broad, dragon or
+	 * enchanted bolts - so it must never be paired with them.
+	 */
+	private static boolean canFireBolt(String weaponName, String ammoName)
+	{
+		if (weaponName == null || ammoName == null)
+		{
+			return true;
+		}
+		if (weaponName.toLowerCase(Locale.ENGLISH).contains("dorgeshuun"))
+		{
+			final String a = ammoName.toLowerCase(Locale.ENGLISH);
+			return a.contains("bone bolt") || a.contains("bronze bolt")
+				|| a.contains("iron bolt") || a.contains("blurite bolt");
+		}
+		return true;
+	}
+
+	/** owned.match for a bolt, but only when {@code weapon} can actually fire it. */
+	private static OwnedItemIndex.OwnedItem matchUsableBolt(OwnedItemIndex owned, OwnedItemIndex.OwnedItem weapon, String boltName)
+	{
+		final OwnedItemIndex.OwnedItem oi = owned.match(boltName);
+		if (oi == null)
+		{
+			return null;
+		}
+		return (weapon == null || canFireBolt(weapon.name, oi.name)) ? oi : null;
+	}
+
+	/** The ammo a weapon would fire: boss dragon bolts, broad bolts (if preferred), else best owned. */
+	private OwnedItemIndex.OwnedItem chooseAmmo(OwnedItemIndex.OwnedItem weapon, MonsterLoadout loadout,
+		OwnedItemIndex owned, AttackStyle style)
+	{
+		if (owned == null)
+		{
+			return null;
+		}
+		final AmmoType type = classifyWeapon(weapon == null ? null : weapon.name);
+		if (type == AmmoType.NONE || type == AmmoType.UNKNOWN)
+		{
+			return null;
+		}
+		OwnedItemIndex.OwnedItem chosen = null;
+		if (type == AmmoType.BOLTS)
+		{
+			if (loadout.isBoss())
+			{
+				chosen = matchUsableBolt(owned, weapon, "Ruby dragon bolts (e)");
+				if (chosen == null)
+				{
+					chosen = matchUsableBolt(owned, weapon, "Diamond dragon bolts (e)");
+				}
+			}
+			if (chosen == null && preferBroadBolts)
+			{
+				chosen = matchUsableBolt(owned, weapon, "Amethyst broad bolts");
+				if (chosen == null)
+				{
+					chosen = matchUsableBolt(owned, weapon, "Broad bolts");
+				}
+			}
+		}
+		if (chosen == null)
+		{
+			chosen = bestOwnedAmmo(owned, type, style, weapon);
+		}
+		return chosen;
+	}
+
+	/** DPS for a candidate weapon including the ammo it would fire (ranged only). */
+	private double dpsWithAmmo(OwnedItemIndex.OwnedItem weapon, AttackStyle style, MonsterLoadout loadout,
+		OwnedItemIndex owned, Map<GearSlot, OwnedItemIndex.OwnedItem> baseLoadout)
+	{
+		final Map<GearSlot, OwnedItemIndex.OwnedItem> lo = new EnumMap<>(GearSlot.class);
+		lo.putAll(baseLoadout);
+		lo.put(GearSlot.WEAPON, weapon);
+		if (style == AttackStyle.RANGED)
+		{
+			final OwnedItemIndex.OwnedItem ammo = chooseAmmo(weapon, loadout, owned, style);
+			if (ammo != null)
+			{
+				lo.put(GearSlot.AMMO, ammo);
+			}
+			else
+			{
+				lo.remove(GearSlot.AMMO);
+			}
+		}
+		return DpsCalculator.computeDps(style, playerStats, assumePrayers, lo, loadout.getCombat(), loadout.getAttributes());
+	}
+
+	/** True if the player owns broad bolts (plain or amethyst). */
+	private static boolean ownsBroadBolts(OwnedItemIndex owned)
+	{
+		return owned != null && (owned.match("Amethyst broad bolts") != null || owned.match("Broad bolts") != null);
+	}
+
+	/** True if the player owns any bolt-firing ranged weapon (a crossbow). */
+	private static boolean hasBoltWeapon(OwnedItemIndex owned)
+	{
+		if (owned == null)
+		{
+			return false;
+		}
+		for (OwnedItemIndex.OwnedItem w : owned.weaponsForStyle(AttackStyle.RANGED))
+		{
+			if (classifyWeapon(w.name) == AmmoType.BOLTS)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/** The player's owned blowpipe (Toxic / Blazing), or null if they own none. */
@@ -764,6 +891,44 @@ class SlayerLoadoutPanel extends PluginPanel
 		set.put(GearSlot.LEGS, robe);
 		set.put(GearSlot.HANDS, gloves);
 		return set;
+	}
+
+	/** A non-imbued Salve amulet (base or enchanted) — only boosts melee. */
+	private static boolean isNonImbuedSalve(String name)
+	{
+		final String n = name.toLowerCase(Locale.ENGLISH);
+		return n.contains("salve amulet") && !n.contains("(i)") && !n.contains("(ei)");
+	}
+
+	/** Weapons with a usable special attack (Lightbearer is only worth pairing with these). */
+	private static final java.util.Set<String> SPEC_ATTACK_WEAPONS = new java.util.HashSet<>(java.util.Arrays.asList(
+		"dragon dagger", "dragon longsword", "dragon mace", "dragon scimitar", "dragon halberd",
+		"dragon spear", "dragon warhammer", "dragon claws", "dragon knife", "dragon thrownaxe", "dragon crossbow",
+		"abyssal dagger", "abyssal bludgeon", "granite maul", "granite hammer", "elder maul", "crystal halberd",
+		"barrelchest anchor", "statius's warhammer", "vesta's longsword", "ancient mace", "saradomin's blessed sword",
+		"armadyl godsword", "bandos godsword", "saradomin godsword", "zamorak godsword", "ancient godsword",
+		"voidwaker", "arclight", "darklight", "emberlight", "burning claws", "bone dagger",
+		"toxic blowpipe", "magic shortbow", "dark bow", "armadyl crossbow", "zaryte crossbow",
+		"heavy ballista", "light ballista", "seercull", "webweaver bow", "ursine chainmace", "accursed sceptre",
+		"sanguinesti staff", "eldritch nightmare staff", "volatile nightmare staff", "purging staff",
+		"tonalztics of ralos", "dinh's bulwark", "dawnbringer"));
+
+	/** True if {@code weapon} has a usable special attack (by name). */
+	private static boolean weaponHasSpecial(OwnedItemIndex.OwnedItem weapon)
+	{
+		if (weapon == null)
+		{
+			return false;
+		}
+		final String n = weapon.name.toLowerCase(Locale.ENGLISH);
+		for (String frag : SPEC_ATTACK_WEAPONS)
+		{
+			if (n.contains(frag))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/** Defence-reducing spec weapons, best first; suggested on boss tasks. */
@@ -880,6 +1045,72 @@ class SlayerLoadoutPanel extends PluginPanel
 			}
 		}
 		return null;
+	}
+
+	/** Prominent section listing mandatory/protective gear for a task, with owned state. */
+	private JPanel buildRequiredSection(MonsterLoadout loadout, OwnedItemIndex owned, ItemManager itemManager)
+	{
+		final JPanel section = new JPanel(new BorderLayout());
+		section.setBackground(ColorScheme.DARKER_GRAY_COLOR);
+		section.setBorder(BorderFactory.createCompoundBorder(
+			BorderFactory.createLineBorder(ColorScheme.BRAND_ORANGE, 1),
+			BorderFactory.createEmptyBorder(6, 6, 6, 6)));
+
+		final JLabel head = new JLabel("Required gear");
+		head.setFont(FontManager.getRunescapeBoldFont());
+		head.setForeground(ColorScheme.BRAND_ORANGE);
+		head.setBorder(BorderFactory.createEmptyBorder(0, 0, 6, 0));
+		section.add(head, BorderLayout.NORTH);
+
+		final JPanel body = new JPanel();
+		body.setLayout(new BoxLayout(body, BoxLayout.Y_AXIS));
+		body.setBackground(ColorScheme.DARKER_GRAY_COLOR);
+
+		for (String itemName : loadout.getRequiredGear())
+		{
+			final OwnedItemIndex.OwnedItem oi = owned == null ? null : owned.match(itemName);
+
+			final JPanel row = new JPanel();
+			row.setLayout(new BoxLayout(row, BoxLayout.X_AXIS));
+			row.setBackground(ColorScheme.DARKER_GRAY_COLOR);
+			row.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+			final JLabel icon = new JLabel();
+			icon.setPreferredSize(new Dimension(36, 32));
+			if (oi != null)
+			{
+				final AsyncBufferedImage image = itemManager.getImage(oi.id);
+				if (image != null)
+				{
+					image.addTo(icon);
+				}
+			}
+			row.add(icon);
+
+			final JLabel name = new JLabel(oi != null
+				? escape(itemName)
+				: "<html>" + escape(itemName) + " <span style='color:#996666'>(not owned)</span></html>");
+			name.setFont(FontManager.getRunescapeSmallFont());
+			name.setForeground(oi != null ? Color.WHITE : EMPTY_COLOR);
+			row.add(name);
+
+			body.add(row);
+		}
+
+		final String note = loadout.getRequiredGearNote();
+		if (note != null)
+		{
+			final JLabel noteLabel = new JLabel("<html><body style='width:180px'>" + escape(note) + "</body></html>");
+			noteLabel.setFont(FontManager.getRunescapeSmallFont());
+			noteLabel.setForeground(ColorScheme.LIGHT_GRAY_COLOR);
+			noteLabel.setBorder(BorderFactory.createEmptyBorder(6, 0, 0, 0));
+			noteLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+			body.add(noteLabel);
+		}
+
+		section.add(body, BorderLayout.CENTER);
+		section.setAlignmentX(Component.LEFT_ALIGNMENT);
+		return section;
 	}
 
 	private JPanel buildSpecSection(OwnedItemIndex.OwnedItem spec, ItemManager itemManager)
