@@ -8,7 +8,11 @@ rather than a version tag, so version numbers below are a human-readable conveni
 
 ## [Unreleased]
 
-In review via [runelite/plugin-hub#12161](https://github.com/runelite/plugin-hub/pull/12161).
+_Nothing yet._
+
+## [1.2.0] - 2026-05-24
+
+Released via [runelite/plugin-hub#12161](https://github.com/runelite/plugin-hub/pull/12161).
 
 ### Added
 - Salve amulet variants are now modelled in the DPS calculator, per variant and
