@@ -8,7 +8,22 @@ rather than a version tag, so version numbers below are a human-readable conveni
 
 ## [Unreleased]
 
-_Nothing yet._
+### Added
+- Amulet of rancour (melee amulet) and Avernic treads (melee boots) added to the
+  melee gear lists.
+
+### Changed
+- Magic loadout is now consistent with the recommended spell: when a spell is
+  recommended (e.g. Ice Barrage), the plugin recommends an autocast-capable staff
+  (Master wand, Kodai wand, Ancient sceptre, Staff of the dead, etc.) so the spell can
+  actually be cast, rather than a powered staff (Trident/Sanguinesti/Shadow) that uses
+  its own attack. Powered staves are still chosen for monsters with no recommended
+  spell, shown as "no spell needed".
+
+### Fixed
+- The spell row no longer shows a spellbook spell next to a powered staff that cannot
+  cast it.
+- The Ancient sceptre is no longer mis-classified as a powered staff (it autocasts).
 
 ## [1.2.0] - 2026-05-24
 

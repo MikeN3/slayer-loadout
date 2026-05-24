@@ -372,9 +372,17 @@ class SlayerLoadoutPanel extends PluginPanel
 				// weapons so a crossbow wins even over a higher-DPS thrown weapon (e.g. knives).
 				final boolean broadOnly = style == AttackStyle.RANGED && preferBroadBolts
 					&& ownsBroadBolts(owned) && hasBoltWeapon(owned);
+				// When a spell is recommended, restrict Magic to an autocast-capable staff so
+				// the spell can actually be cast (powered staves use their own built-in attack).
+				final boolean castStaffOnly = style == AttackStyle.MAGIC
+					&& loadout.getMageSpell() != null && hasAutocastStaff(owned);
 				for (OwnedItemIndex.OwnedItem w : owned.weaponsForStyle(style))
 				{
 					if (broadOnly && classifyWeapon(w.name) != AmmoType.BOLTS)
+					{
+						continue;
+					}
+					if (castStaffOnly && isPoweredStaff(w.name))
 					{
 						continue;
 					}
@@ -1015,14 +1023,16 @@ class SlayerLoadoutPanel extends PluginPanel
 	/** Best spellbook spell for the Magic loadout, given the chosen magic weapon. */
 	private static String recommendedSpell(OwnedItemIndex.OwnedItem weapon, MonsterLoadout loadout)
 	{
+		// A powered staff uses its own attack and cannot autocast a spellbook spell, so
+		// never show a spell next to one (keeps the weapon and spell consistent).
+		if (weapon != null && isPoweredStaff(weapon.name))
+		{
+			return "Powered staff - no spell needed";
+		}
 		final String dataSpell = loadout.getMageSpell();
 		if (dataSpell != null)
 		{
 			return dataSpell;
-		}
-		if (weapon != null && isPoweredStaff(weapon.name))
-		{
-			return "Powered staff - no spell needed";
 		}
 		return "Fire Surge (Standard)";
 	}
@@ -1031,7 +1041,25 @@ class SlayerLoadoutPanel extends PluginPanel
 	private static boolean isPoweredStaff(String name)
 	{
 		final String n = name.toLowerCase(Locale.ENGLISH);
-		return n.contains("trident") || n.contains("sanguinesti") || n.contains("shadow") || n.contains("sceptre");
+		return n.contains("trident") || n.contains("sanguinesti") || n.contains("shadow")
+			|| n.contains("accursed sceptre") || n.contains("warped sceptre");
+	}
+
+	/** True if the player owns a magic weapon that can autocast a spellbook spell. */
+	private static boolean hasAutocastStaff(OwnedItemIndex owned)
+	{
+		if (owned == null)
+		{
+			return false;
+		}
+		for (OwnedItemIndex.OwnedItem w : owned.weaponsForStyle(AttackStyle.MAGIC))
+		{
+			if (!isPoweredStaff(w.name))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private static OwnedItemIndex.OwnedItem bestSpecWeapon(OwnedItemIndex owned)
