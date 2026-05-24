@@ -8,17 +8,9 @@ rather than a version tag, so version numbers below are a human-readable conveni
 
 ## [Unreleased]
 
-In review via [runelite/plugin-hub#12157](https://github.com/runelite/plugin-hub/pull/12157).
+In review via [runelite/plugin-hub#12161](https://github.com/runelite/plugin-hub/pull/12161).
 
 ### Added
-- "Prefer blowpipe" setting (off by default): when enabled and a Toxic/Blazing
-  blowpipe is owned, it overrides the recommended ranged weapon and auto-selects
-  your best darts.
-- Void and Elite Void set bonuses are now modelled in the DPS calculator
-  (melee/ranged +10% accuracy & damage; Elite ranged +12.5% damage; magic +45%
-  accuracy; Elite magic +5% damage). A complete owned set is evaluated as a
-  candidate loadout and chosen when it beats the best mix-and-match armour.
-- Lightbearer added to the ring options.
 - Salve amulet variants are now modelled in the DPS calculator, per variant and
   style vs undead: base/(e) boost melee only (16.67% / 20%); (i) adds ranged
   (16.67%) and magic (15%); (ei) gives 20% to all three styles. The bonus correctly
@@ -30,8 +22,6 @@ In review via [runelite/plugin-hub#12157](https://github.com/runelite/plugin-hub
   The mechanism is reusable for other special-requirement monsters.
 
 ### Changed
-- Boss tasks now prefer enchanted dragon bolts (Ruby/Diamond dragon bolts (e)) for
-  bolt-firing weapons; regular Slayer tasks continue to use broad bolts.
 - Recommendations now recompute only while the bank is open (full visibility of what
   you own); swapping gear during normal play no longer recalculates them.
 - Vorkath's recommended gear updated from the OSRS Wiki strategies: Salve amulet (ei)
@@ -45,15 +35,6 @@ In review via [runelite/plugin-hub#12157](https://github.com/runelite/plugin-hub
   thrown weapon like the rune knife. Turn the setting off for pure best-DPS selection.
 
 ### Fixed
-- Corrected an item-name mismatch in the dataset (`Archers ring` → `Archer ring`)
-  so the imbued ranged ring is recognised.
-- Slayer-helmet colour and imbued variants (Black, Red, Hydra, etc.) now match the
-  head slot instead of falling through.
-- Recommendations no longer flicker or blank out when depositing while the bank is
-  open; owned-item scans are debounced to one rebuild per game tick off a
-  consistent snapshot.
-- A Void melee helm no longer leaks into the Ranged/Magic head slots; Void helms
-  are now style-locked.
 - Lightbearer is now only recommended alongside a weapon that has a usable special
   attack (it speeds special-attack energy regen), instead of being paired with
   weapons that have no special.
@@ -67,6 +48,35 @@ In review via [runelite/plugin-hub#12157](https://github.com/runelite/plugin-hub
   (limited to bronze/iron/blurite/bone bolts) was being recommended with broad bolts
   and winning over the rune crossbow on attack speed; it now only pairs with bolts it
   can actually use, so the rune crossbow is chosen as intended.
+
+## [1.1.0] - 2026-05-23
+
+Released via [runelite/plugin-hub#12157](https://github.com/runelite/plugin-hub/pull/12157).
+
+### Added
+- "Prefer blowpipe" setting (off by default): when enabled and a Toxic/Blazing
+  blowpipe is owned, it overrides the recommended ranged weapon and auto-selects
+  your best darts.
+- Void and Elite Void set bonuses are now modelled in the DPS calculator
+  (melee/ranged +10% accuracy & damage; Elite ranged +12.5% damage; magic +45%
+  accuracy; Elite magic +5% damage). A complete owned set is evaluated as a
+  candidate loadout and chosen when it beats the best mix-and-match armour.
+- Lightbearer added to the ring options.
+
+### Changed
+- Boss tasks now prefer enchanted dragon bolts (Ruby/Diamond dragon bolts (e)) for
+  bolt-firing weapons; regular Slayer tasks continue to use broad bolts.
+
+### Fixed
+- Corrected an item-name mismatch in the dataset (`Archers ring` → `Archer ring`)
+  so the imbued ranged ring is recognised.
+- Slayer-helmet colour and imbued variants (Black, Red, Hydra, etc.) now match the
+  head slot instead of falling through.
+- Recommendations no longer flicker or blank out when depositing while the bank is
+  open; owned-item scans are debounced to one rebuild per game tick off a
+  consistent snapshot.
+- A Void melee helm no longer leaks into the Ranged/Magic head slots; Void helms
+  are now style-locked.
 
 ## [1.0.0] - 2026-05-23
 
