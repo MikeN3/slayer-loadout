@@ -8,6 +8,12 @@ rather than a version tag, so version numbers below are a human-readable conveni
 
 ## [Unreleased]
 
+_Nothing yet._
+
+## [1.4.0] - 2026-05-24
+
+Released via [runelite/plugin-hub#12179](https://github.com/runelite/plugin-hub/pull/12179).
+
 ### Added
 - Fossil Island wyverns task added, with Melee/Ranged/Magic BiS from the OSRS Wiki and
   wiki defence stats for the DPS estimate. The mandatory anti-wyvern shield - any one of
