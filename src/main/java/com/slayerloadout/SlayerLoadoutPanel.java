@@ -55,6 +55,9 @@ class SlayerLoadoutPanel extends PluginPanel
 		void onClearOverride();
 	}
 
+	/** Installed plugin version, shown in the panel footer. Bump on each release. */
+	private static final String VERSION = "1.4.0";
+
 	private final JPanel content = new JPanel();
 	private final JLabel titleLabel = new JLabel();
 	private final JLabel statusLabel = new JLabel();
@@ -150,6 +153,13 @@ class SlayerLoadoutPanel extends PluginPanel
 
 		add(header, BorderLayout.NORTH);
 		add(scrollPane, BorderLayout.CENTER);
+
+		final JLabel versionLabel = new JLabel("Slayer Loadout v" + VERSION);
+		versionLabel.setFont(FontManager.getRunescapeSmallFont());
+		versionLabel.setForeground(ColorScheme.LIGHT_GRAY_COLOR);
+		versionLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		versionLabel.setBorder(BorderFactory.createEmptyBorder(6, 0, 0, 0));
+		add(versionLabel, BorderLayout.SOUTH);
 
 		showNoTask();
 	}
@@ -777,7 +787,8 @@ class SlayerLoadoutPanel extends PluginPanel
 		OwnedItemIndex.OwnedItem chosen = null;
 		if (type == AmmoType.BOLTS)
 		{
-			if (loadout.isBoss())
+			// Bosses and draconic monsters: enchanted dragon bolts proc hard and out-damage broad bolts.
+			if (loadout.isBoss() || loadout.getAttributes().contains("dragon"))
 			{
 				chosen = matchUsableBolt(owned, weapon, "Ruby dragon bolts (e)");
 				if (chosen == null)

@@ -21697,6 +21697,236 @@
           ]
         }
       }
+    },
+    {
+      "names": [
+        "fossil island wyverns",
+        "fossil island wyvern",
+        "spitting wyvern",
+        "taloned wyvern",
+        "long-tailed wyvern",
+        "ancient wyvern"
+      ],
+      "slayerLevel": 66,
+      "difficulty": "Hard",
+      "recommendedStyle": "MELEE",
+      "attributes": [
+        "dragon"
+      ],
+      "meleeWeakness": "STAB",
+      "mageSpell": "Wind Surge (Standard)",
+      "combat": {
+        "defenceLevel": 90,
+        "defStab": 50,
+        "defSlash": 70,
+        "defCrush": 70,
+        "defMagic": 140,
+        "defRange": 120,
+        "magicLevel": 125,
+        "hitpoints": 200,
+        "size": 3
+      },
+      "notes": "Tank with high Ranged defence and pray Protect from Melee (their ranged hits through prayer). Draconic, so Dragon hunter weapons and dragon bolts (e) apply. 66 Slayer (82 for the Ancient Wyvern).",
+      "requiredGear": [
+        "Ancient wyvern shield",
+        "Dragonfire ward",
+        "Dragonfire shield",
+        "Mind shield",
+        "Elemental shield"
+      ],
+      "requiredGearNote": "Wyverns' icy breath hits 50+ - you must wear ANY ONE of these shields to block it (an Anti-dragon shield does NOT work). Only the Ancient wyvern shield also stops the freeze.",
+      "styles": {
+        "MELEE": {
+          "HEAD": [
+            "Slayer helmet (i)",
+            "Slayer helmet",
+            "Torva full helm",
+            "Neitiznot faceguard",
+            "Helm of neitiznot"
+          ],
+          "CAPE": [
+            "Infernal cape",
+            "Fire cape",
+            "Mythical cape",
+            "Obsidian cape"
+          ],
+          "NECK": [
+            "Amulet of rancour",
+            "Amulet of torture",
+            "Amulet of fury",
+            "Amulet of glory",
+            "Amulet of strength"
+          ],
+          "WEAPON": [
+            "Dragon hunter lance",
+            "Osmumten's fang",
+            "Ghrazi rapier",
+            "Zamorakian hasta",
+            "Abyssal tentacle",
+            "Dragon scimitar"
+          ],
+          "BODY": [
+            "Torva platebody",
+            "Bandos chestplate",
+            "Fighter torso",
+            "Rune platebody"
+          ],
+          "SHIELD": [
+            "Ancient wyvern shield",
+            "Dragonfire shield",
+            "Dragonfire ward",
+            "Mind shield",
+            "Elemental shield"
+          ],
+          "LEGS": [
+            "Torva platelegs",
+            "Bandos tassets",
+            "Rune platelegs"
+          ],
+          "HANDS": [
+            "Ferocious gloves",
+            "Barrows gloves",
+            "Dragon gloves"
+          ],
+          "FEET": [
+            "Avernic treads",
+            "Primordial boots",
+            "Dragon boots",
+            "Rune boots"
+          ],
+          "RING": [
+            "Ultor ring",
+            "Berserker ring (i)",
+            "Lightbearer",
+            "Berserker ring",
+            "Warrior ring"
+          ]
+        },
+        "RANGED": {
+          "HEAD": [
+            "Slayer helmet (i)",
+            "Masori mask (f)",
+            "Armadyl helmet",
+            "Archer helm"
+          ],
+          "CAPE": [
+            "Dizana's quiver",
+            "Ava's assembler",
+            "Ava's accumulator",
+            "Ava's attractor"
+          ],
+          "NECK": [
+            "Necklace of anguish",
+            "Amulet of fury",
+            "Amulet of glory"
+          ],
+          "WEAPON": [
+            "Dragon hunter crossbow",
+            "Zaryte crossbow",
+            "Armadyl crossbow",
+            "Dragon crossbow",
+            "Rune crossbow"
+          ],
+          "BODY": [
+            "Masori body (f)",
+            "Karil's leathertop",
+            "Black d'hide body"
+          ],
+          "SHIELD": [
+            "Dragonfire ward",
+            "Mind shield",
+            "Elemental shield",
+            "Dragonfire shield",
+            "Ancient wyvern shield"
+          ],
+          "LEGS": [
+            "Masori chaps (f)",
+            "Black d'hide chaps"
+          ],
+          "HANDS": [
+            "Zaryte vambraces",
+            "Barrows gloves",
+            "Black d'hide vambraces"
+          ],
+          "FEET": [
+            "Pegasian boots",
+            "Ranger boots",
+            "Snakeskin boots"
+          ],
+          "RING": [
+            "Venator ring",
+            "Archer ring (i)",
+            "Lightbearer",
+            "Archer ring"
+          ],
+          "AMMO": [
+            "Diamond dragon bolts (e)",
+            "Ruby dragon bolts (e)",
+            "Dragon bolts",
+            "Broad bolts"
+          ]
+        },
+        "MAGIC": {
+          "HEAD": [
+            "Slayer helmet (i)",
+            "Ancestral hat",
+            "Virtus mask",
+            "Ahrim's hood"
+          ],
+          "CAPE": [
+            "Imbued zamorak cape",
+            "Imbued saradomin cape",
+            "Imbued guthix cape",
+            "God cape"
+          ],
+          "NECK": [
+            "Occult necklace",
+            "Amulet of fury",
+            "Amulet of glory"
+          ],
+          "WEAPON": [
+            "Dragon hunter wand",
+            "Sanguinesti staff",
+            "Harmonised nightmare staff",
+            "Trident of the swamp",
+            "Trident of the seas"
+          ],
+          "BODY": [
+            "Ancestral robe top",
+            "Virtus robe top",
+            "Ahrim's robetop",
+            "Mystic robe top"
+          ],
+          "SHIELD": [
+            "Ancient wyvern shield",
+            "Mind shield",
+            "Elemental shield",
+            "Dragonfire shield"
+          ],
+          "LEGS": [
+            "Ancestral robe bottom",
+            "Virtus robe bottom",
+            "Ahrim's robeskirt",
+            "Mystic robe bottom"
+          ],
+          "HANDS": [
+            "Tormented bracelet",
+            "Barrows gloves",
+            "Mystic gloves"
+          ],
+          "FEET": [
+            "Eternal boots",
+            "Infinity boots",
+            "Mystic boots"
+          ],
+          "RING": [
+            "Magus ring",
+            "Seers ring (i)",
+            "Lightbearer",
+            "Seers ring"
+          ]
+        }
+      }
     }
   ]
 }

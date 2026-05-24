@@ -8,7 +8,19 @@ rather than a version tag, so version numbers below are a human-readable conveni
 
 ## [Unreleased]
 
-_Nothing yet._
+### Added
+- Fossil Island wyverns task added, with Melee/Ranged/Magic BiS from the OSRS Wiki and
+  wiki defence stats for the DPS estimate. The mandatory anti-wyvern shield - any one of
+  Ancient wyvern shield, Dragonfire ward/shield, Mind or Elemental shield (an Anti-dragon
+  shield does NOT work) - is surfaced as a Required gear callout for the icy breath. They
+  are draconic, so Dragon hunter weapons and dragon bolts (e) apply.
+- The installed plugin version is now shown in the side-panel footer (e.g.
+  "Slayer Loadout v1.4.0").
+
+### Changed
+- Enchanted dragon bolts (Ruby/Diamond dragon bolts (e)) are now preferred on any
+  draconic task (the "dragon" attribute), not just bosses, so crossbows on dragons and
+  wyverns use dragon bolts over broad bolts when owned.
 
 ## [1.3.0] - 2026-05-24
 
