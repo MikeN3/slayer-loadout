@@ -8,7 +8,16 @@ rather than a version tag, so version numbers below are a human-readable conveni
 
 ## [Unreleased]
 
-_Nothing yet._
+### Added
+- Confliction gauntlets added as best-in-slot Magic hands (above the Tormented
+  bracelet). Note: its passive gives the next cast a second accuracy roll after a miss
+  on the same target - but only with one-handed magic weapons (disabled with
+  two-handers such as Tumeken's shadow).
+- Avernic treads variations added across the feet slots: all eight forms (base,
+  (pr)/(pe)/(et), the three combos, and (max)). Pegasian forms appear for Ranged and
+  eternal forms for Magic, with (max) - the highest offensive boots for all three
+  styles - at the top; the melee feet entry already covers the melee forms. Note: they
+  give no prayer bonus and slightly less defence than Guardian/Echo boots.
 
 ## [1.4.0] - 2026-05-24
 
