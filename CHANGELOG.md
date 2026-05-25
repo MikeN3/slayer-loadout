@@ -8,6 +8,10 @@ rather than a version tag, so version numbers below are a human-readable conveni
 
 ## [Unreleased]
 
+## [1.5.1] - 2026-05-25
+
+Released via [runelite/plugin-hub#12191](https://github.com/runelite/plugin-hub/pull/12191).
+
 ### Fixed
 - Eye of Ayak is now treated as a powered staff (it has a built-in attack), so the
   Magic loadout no longer suggests a spellbook spell next to it - it can only use its
