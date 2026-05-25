@@ -8,6 +8,20 @@ rather than a version tag, so version numbers below are a human-readable conveni
 
 ## [Unreleased]
 
+### Fixed
+- Eye of Ayak is now treated as a powered staff (it has a built-in attack), so the
+  Magic loadout no longer suggests a spellbook spell next to it - it can only use its
+  own attack. Its DPS is also modelled at its true 3-tick speed and base max hit of
+  floor(Magic level / 3) - 6.
+- Tasks that mandate a shield (e.g. Fossil Island wyverns and their anti-wyvern
+  shield) no longer recommend a two-handed weapon, which would leave no off-hand for
+  the required shield. Only one-handed weapons are considered for these tasks, across
+  the curated pick, the DPS pick, and the best-owned fallback.
+
+## [1.5.0] - 2026-05-24
+
+Released via [runelite/plugin-hub#12182](https://github.com/runelite/plugin-hub/pull/12182).
+
 ### Added
 - Confliction gauntlets added as best-in-slot Magic hands (above the Tormented
   bracelet). Note: its passive gives the next cast a second accuracy roll after a miss

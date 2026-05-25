@@ -50,6 +50,13 @@ public class MonsterLoadout
 	/** Explanation shown alongside {@link #requiredGear}. */
 	String requiredGearNote;
 
+	/**
+	 * True when the task mandates a shield (e.g. an anti-wyvern shield to block icy
+	 * breath). A shield occupies the off-hand, so only one-handed weapons may be
+	 * recommended - a two-handed weapon would leave no room for the required shield.
+	 */
+	boolean requiresShield;
+
 	/** styleName -> (slotName -> ordered list of item names, best first). */
 	Map<String, Map<String, List<String>>> styles;
 
@@ -95,6 +102,12 @@ public class MonsterLoadout
 	String getRequiredGearNote()
 	{
 		return (requiredGearNote == null || requiredGearNote.trim().isEmpty()) ? null : requiredGearNote.trim();
+	}
+
+	/** @return true if a shield is mandatory, so only one-handed weapons may be recommended. */
+	boolean isRequiresShield()
+	{
+		return requiresShield;
 	}
 
 	/** @return "STAB"/"SLASH"/"CRUSH", or null if no weakness is set/recognised. */

@@ -286,6 +286,10 @@ public final class DpsCalculator
 		{
 			return third - 3;
 		}
+		if (wname.contains("eye of ayak"))
+		{
+			return third - 6; // OSRS Wiki: base max hit = floor(Magic/3) - 6.
+		}
 		// Cast spell (non-powered weapon): assume a high-tier surge.
 		return 24;
 	}
@@ -293,7 +297,8 @@ public final class DpsCalculator
 	private static boolean isPoweredStaffName(String wname)
 	{
 		return wname.contains("trident") || wname.contains("sanguinesti")
-			|| wname.contains("shadow") || wname.contains("accursed sceptre");
+			|| wname.contains("shadow") || wname.contains("accursed sceptre")
+			|| wname.contains("eye of ayak");
 	}
 
 	private enum VoidKind

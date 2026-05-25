@@ -56,7 +56,7 @@ class SlayerLoadoutPanel extends PluginPanel
 	}
 
 	/** Installed plugin version, shown in the panel footer. Bump on each release. */
-	private static final String VERSION = "1.5.0";
+	private static final String VERSION = "1.5.1";
 
 	private final JPanel content = new JPanel();
 	private final JLabel titleLabel = new JLabel();
@@ -386,8 +386,15 @@ class SlayerLoadoutPanel extends PluginPanel
 				// the spell can actually be cast (powered staves use their own built-in attack).
 				final boolean castStaffOnly = style == AttackStyle.MAGIC
 					&& loadout.getMageSpell() != null && hasAutocastStaff(owned);
+				// A task that mandates a shield (e.g. anti-wyvern) leaves no off-hand for a
+				// two-handed weapon, so exclude 2H weapons from the DPS pick entirely.
+				final boolean requiresShield = loadout.isRequiresShield();
 				for (OwnedItemIndex.OwnedItem w : owned.weaponsForStyle(style))
 				{
+					if (requiresShield && w.twoHanded)
+					{
+						continue;
+					}
 					if (broadOnly && classifyWeapon(w.name) != AmmoType.BOLTS)
 					{
 						continue;
@@ -557,6 +564,9 @@ class SlayerLoadoutPanel extends PluginPanel
 		}
 		else
 		{
+			// A required shield forces a one-handed weapon, so two-handed weapons are
+			// excluded from the weapon slot's curated pick, weakness pick, and fallback.
+			final boolean oneHandedWeapon = slot == GearSlot.WEAPON && loadout.isRequiresShield();
 			// Blowpipe override (ranged weapon): when enabled and a blowpipe is owned,
 			// force it regardless of the curated list or DPS pick.
 			if (slot == GearSlot.WEAPON && style == AttackStyle.RANGED && preferBlowpipe && owned != null)
@@ -587,6 +597,11 @@ class SlayerLoadoutPanel extends PluginPanel
 					final OwnedItemIndex.OwnedItem oi = owned.match(candidate);
 					if (oi != null)
 					{
+						// Skip a two-handed curated weapon when the task needs a shield.
+						if (oneHandedWeapon && oi.twoHanded)
+						{
+							continue;
+						}
 						chosen = oi;
 						curated = true;
 						break;
@@ -598,7 +613,7 @@ class SlayerLoadoutPanel extends PluginPanel
 				final String weakness = loadout.getMeleeWeakness();
 				if (weakness != null && (chosen == null || isGenericMelee(chosen.name)))
 				{
-					final OwnedItemIndex.OwnedItem weakPick = owned.bestMeleeWeaponForWeakness(weakness);
+					final OwnedItemIndex.OwnedItem weakPick = owned.bestMeleeWeaponForWeakness(weakness, oneHandedWeapon);
 					if (weakPick != null)
 					{
 						chosen = weakPick;
@@ -608,7 +623,7 @@ class SlayerLoadoutPanel extends PluginPanel
 			}
 			if (chosen == null && owned != null)
 			{
-				chosen = owned.bestInSlot(slot, style);
+				chosen = owned.bestInSlot(slot, style, oneHandedWeapon);
 			}
 		}
 		return new Pick(chosen, curated, setBonus, placeholder);
@@ -1053,7 +1068,8 @@ class SlayerLoadoutPanel extends PluginPanel
 	{
 		final String n = name.toLowerCase(Locale.ENGLISH);
 		return n.contains("trident") || n.contains("sanguinesti") || n.contains("shadow")
-			|| n.contains("accursed sceptre") || n.contains("warped sceptre");
+			|| n.contains("accursed sceptre") || n.contains("warped sceptre")
+			|| n.contains("eye of ayak");
 	}
 
 	/** True if the player owns a magic weapon that can autocast a spellbook spell. */

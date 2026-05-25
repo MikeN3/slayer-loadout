@@ -22519,6 +22519,7 @@
         "Elemental shield"
       ],
       "requiredGearNote": "Wyverns' icy breath hits 50+ - you must wear ANY ONE of these shields to block it (an Anti-dragon shield does NOT work). Only the Ancient wyvern shield also stops the freeze.",
+      "requiresShield": true,
       "styles": {
         "MELEE": {
           "HEAD": [

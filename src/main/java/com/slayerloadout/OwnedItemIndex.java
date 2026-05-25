@@ -163,6 +163,16 @@ public class OwnedItemIndex
 	 */
 	public OwnedItem bestInSlot(GearSlot slot, AttackStyle style)
 	{
+		return bestInSlot(slot, style, false);
+	}
+
+	/**
+	 * As {@link #bestInSlot(GearSlot, AttackStyle)}, but when {@code oneHandedWeaponOnly}
+	 * is set, two-handed weapons are skipped for the weapon slot (used when the task
+	 * mandates a shield, which can't be worn alongside a two-handed weapon).
+	 */
+	public OwnedItem bestInSlot(GearSlot slot, AttackStyle style, boolean oneHandedWeaponOnly)
+	{
 		final List<OwnedItem> list = bySlot.get(slot);
 		if (list == null || list.isEmpty())
 		{
@@ -174,6 +184,10 @@ public class OwnedItemIndex
 		for (OwnedItem item : list)
 		{
 			if (slot == GearSlot.WEAPON && item.weaponStyle != style)
+			{
+				continue;
+			}
+			if (oneHandedWeaponOnly && slot == GearSlot.WEAPON && item.twoHanded)
 			{
 				continue;
 			}
@@ -248,6 +262,15 @@ public class OwnedItemIndex
 	 */
 	public OwnedItem bestMeleeWeaponForWeakness(String weakness)
 	{
+		return bestMeleeWeaponForWeakness(weakness, false);
+	}
+
+	/**
+	 * As {@link #bestMeleeWeaponForWeakness(String)}, but skips two-handed weapons when
+	 * {@code oneHandedOnly} is set (used when the task mandates a shield).
+	 */
+	public OwnedItem bestMeleeWeaponForWeakness(String weakness, boolean oneHandedOnly)
+	{
 		final List<OwnedItem> list = bySlot.get(GearSlot.WEAPON);
 		if (list == null)
 		{
@@ -258,6 +281,10 @@ public class OwnedItemIndex
 		for (OwnedItem item : list)
 		{
 			if (item.weaponStyle != AttackStyle.MELEE)
+			{
+				continue;
+			}
+			if (oneHandedOnly && item.twoHanded)
 			{
 				continue;
 			}
