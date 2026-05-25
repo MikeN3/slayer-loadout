@@ -56,7 +56,7 @@ class SlayerLoadoutPanel extends PluginPanel
 	}
 
 	/** Installed plugin version, shown in the panel footer. Bump on each release. */
-	private static final String VERSION = "1.5.1";
+	private static final String VERSION = "1.6.0";
 
 	private final JPanel content = new JPanel();
 	private final JLabel titleLabel = new JLabel();
@@ -289,10 +289,12 @@ class SlayerLoadoutPanel extends PluginPanel
 		BOLTS, ARROWS, DARTS, JAVELINS, NONE, UNKNOWN
 	}
 
-	private static final Color FALLBACK_COLOR = new Color(120, 170, 255);
+	// Green: the item is worn or in your inventory right now (ready to use).
+	private static final Color READY_COLOR = new Color(120, 200, 120);
 	private static final Color EMPTY_COLOR = new Color(150, 90, 90);
 	private static final Color INFO_COLOR = new Color(150, 150, 150);
-	private static final Color SET_COLOR = new Color(120, 200, 120);
+	// Blue: the item is part of a recommended set bonus (Void / Crystal / etc.).
+	private static final Color SET_COLOR = new Color(120, 170, 255);
 	private static final Color SPELL_COLOR = new Color(190, 150, 230);
 
 	private static final class Pick
@@ -496,7 +498,8 @@ class SlayerLoadoutPanel extends PluginPanel
 			{
 				continue;
 			}
-			addRow(rows, c, slot, pk.item, pk.curated, pk.setBonus, pk.placeholder, itemManager);
+			final boolean ready = pk.item != null && owned != null && owned.isReady(pk.item.id);
+			addRow(rows, c, slot, pk.item, pk.setBonus, ready, pk.placeholder, itemManager);
 			c.gridy++;
 		}
 
@@ -630,7 +633,8 @@ class SlayerLoadoutPanel extends PluginPanel
 	}
 
 	private void addRow(JPanel rows, GridBagConstraints c, GearSlot slot,
-		OwnedItemIndex.OwnedItem chosen, boolean curated, boolean setBonus, String placeholder, ItemManager itemManager)
+		OwnedItemIndex.OwnedItem chosen, boolean setBonus, boolean ready, String placeholder,
+		ItemManager itemManager)
 	{
 		final JLabel slotLabel = new JLabel(slot.getDisplayName());
 		slotLabel.setFont(FontManager.getRunescapeSmallFont());
@@ -659,8 +663,9 @@ class SlayerLoadoutPanel extends PluginPanel
 
 			final JLabel name = new JLabel(chosen.name);
 			name.setFont(FontManager.getRunescapeSmallFont());
-			// Green = part of a set bonus; white = curated best-in-slot; blue = best owned alternative.
-			name.setForeground(setBonus ? SET_COLOR : curated ? Color.WHITE : FALLBACK_COLOR);
+			// Green = worn or in your inventory (ready to use); blue = part of a recommended
+			// set bonus; white = everything else you own (bank).
+			name.setForeground(ready ? READY_COLOR : setBonus ? SET_COLOR : Color.WHITE);
 			cell.add(name);
 		}
 		else

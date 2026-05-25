@@ -8,6 +8,16 @@ rather than a version tag, so version numbers below are a human-readable conveni
 
 ## [Unreleased]
 
+### Added
+- Recommendation rows are now colour-coded by where the item is: green when you have it
+  worn or in your inventory (ready to use right now), blue when it's part of a
+  recommended set bonus, and white for everything else you own (i.e. in the bank).
+
+### Changed
+- The old "best owned alternative" blue colour has been removed - curated picks and
+  owned alternatives now both render in white, and the set-bonus highlight moved from
+  green to blue so green is reserved for the new worn/inventory indicator.
+
 ## [1.5.1] - 2026-05-25
 
 Released via [runelite/plugin-hub#12191](https://github.com/runelite/plugin-hub/pull/12191).

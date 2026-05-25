@@ -234,7 +234,36 @@ public class SlayerLoadoutPlugin extends Plugin
 			addContainer(index, InventoryID.EQUIPMENT);
 		}
 
+		// Flag gear the player currently has on them (worn or in inventory) so the panel
+		// can highlight "ready to use" items. Done independently of the include toggles
+		// above so the highlight is accurate even if a container is excluded from scanning.
+		markReady(index, InventoryID.EQUIPMENT);
+		markReady(index, InventoryID.INVENTORY);
+
 		owned = index;
+	}
+
+	/** Mark every (canonicalised) item in a container as ready to use - worn or carried. */
+	private void markReady(OwnedItemIndex index, InventoryID inventoryID)
+	{
+		final ItemContainer container = client.getItemContainer(inventoryID);
+		if (container == null)
+		{
+			return;
+		}
+		for (Item item : container.getItems())
+		{
+			if (item == null)
+			{
+				continue;
+			}
+			final int rawId = item.getId();
+			if (rawId <= 0 || item.getQuantity() <= 0)
+			{
+				continue;
+			}
+			index.markReady(itemManager.canonicalize(rawId));
+		}
 	}
 
 	/** Read the player's boosted combat levels for the DPS calculator. Client thread. */

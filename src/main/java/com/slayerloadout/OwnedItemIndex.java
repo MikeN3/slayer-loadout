@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import net.runelite.client.game.ItemEquipmentStats;
 
 /**
@@ -82,6 +84,24 @@ public class OwnedItemIndex
 
 	private final Map<String, OwnedItem> byName = new HashMap<>();
 	private final Map<GearSlot, List<OwnedItem>> bySlot = new EnumMap<>(GearSlot.class);
+	/**
+	 * Canonical item ids the player currently has worn or in their inventory ("ready to
+	 * use" right now, as opposed to sitting in the bank). Used to highlight such items in
+	 * the panel.
+	 */
+	private final Set<Integer> readyIds = new HashSet<>();
+
+	/** Mark a canonical item id as worn or carried (ready to use without a bank trip). */
+	public void markReady(int id)
+	{
+		readyIds.add(id);
+	}
+
+	/** @return true if the given canonical item id is currently worn or in the inventory. */
+	public boolean isReady(int id)
+	{
+		return readyIds.contains(id);
+	}
 
 	/** Record a non-equippable (or unclassified) owned item - name lookup only. */
 	public void add(String name, int id)
