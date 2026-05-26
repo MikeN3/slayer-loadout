@@ -57,6 +57,26 @@ public class MonsterLoadout
 	 */
 	boolean requiresShield;
 
+	/**
+	 * For a "group" task (e.g. Metal Dragons) where the player picks which sub-monster
+	 * they're fighting: the list of sub-monster names (each resolvable to its own entry).
+	 * When set, the panel shows a picker instead of a single loadout.
+	 */
+	List<String> subMonsters;
+
+	/** Explanation shown for a group task, above the picker. */
+	String groupNote;
+
+	/**
+	 * Soft/suggested gear that helps against a special mechanic but is NOT mandatory
+	 * (e.g. Insulated boots vs the Rune dragon electricity special). Shown as a
+	 * "Warning" section, distinct from {@link #requiredGear}.
+	 */
+	List<String> warningGear;
+
+	/** Explanation shown alongside {@link #warningGear}. */
+	String warningNote;
+
 	/** styleName -> (slotName -> ordered list of item names, best first). */
 	Map<String, Map<String, List<String>>> styles;
 
@@ -108,6 +128,36 @@ public class MonsterLoadout
 	boolean isRequiresShield()
 	{
 		return requiresShield;
+	}
+
+	/** @return true if this is a group task (player picks a sub-monster from a list). */
+	boolean isGroup()
+	{
+		return subMonsters != null && !subMonsters.isEmpty();
+	}
+
+	/** @return the sub-monster names for a group task, or an empty list. */
+	List<String> getSubMonsters()
+	{
+		return subMonsters == null ? Collections.emptyList() : subMonsters;
+	}
+
+	/** @return the note shown above a group task's picker, or null. */
+	String getGroupNote()
+	{
+		return (groupNote == null || groupNote.trim().isEmpty()) ? null : groupNote.trim();
+	}
+
+	/** @return suggested (non-mandatory) gear shown as a Warning, or an empty list. */
+	List<String> getWarningGear()
+	{
+		return warningGear == null ? Collections.emptyList() : warningGear;
+	}
+
+	/** @return the note shown with the warning gear, or null. */
+	String getWarningNote()
+	{
+		return (warningNote == null || warningNote.trim().isEmpty()) ? null : warningNote.trim();
 	}
 
 	/** @return "STAB"/"SLASH"/"CRUSH", or null if no weakness is set/recognised. */

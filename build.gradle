@@ -29,7 +29,7 @@ dependencies {
 }
 
 group = 'com.slayerloadout'
-version = '1.6.0'
+version = '1.7.0'
 
 // The Plugin Hub builds plugins against the RuneLite client which targets Java 11.
 // Source/target 1.8 keeps maximum compatibility, matching the example-plugin template.

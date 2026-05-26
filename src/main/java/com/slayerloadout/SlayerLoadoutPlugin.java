@@ -102,6 +102,12 @@ public class SlayerLoadoutPlugin extends Plugin
 				panelOverride = null;
 				rebuild();
 			}
+
+			@Override
+			public MonsterLoadout resolveMonster(String name)
+			{
+				return bisData.find(name);
+			}
 		});
 
 		navButton = NavigationButton.builder()

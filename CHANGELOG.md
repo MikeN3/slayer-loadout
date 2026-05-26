@@ -9,6 +9,20 @@ rather than a version tag, so version numbers below are a human-readable conveni
 ## [Unreleased]
 
 ### Added
+- **Metal Dragons** task support. Metal dragons is a multi-monster task, so the panel now
+  shows a picker with a button for each of the six dragons (Bronze, Iron, Steel, Mithril,
+  Adamant, Rune). It starts blank until you choose one, then shows that dragon's
+  best-in-slot loadout and DPS. Each dragon remains previewable on its own too.
+- A **Warning** section: a soft, non-mandatory counterpart to Required gear that flags
+  suggested items for a monster's special mechanics - e.g. Insulated boots for Rune
+  dragons' Electricity special, Serpentine helm for Adamant dragons' poison spit, and a
+  super antifire reminder for Mithril dragons' long-range dragonfire.
+
+## [1.6.0] - 2026-05-25
+
+Released via [runelite/plugin-hub#12201](https://github.com/runelite/plugin-hub/pull/12201).
+
+### Added
 - Recommendation rows are now colour-coded by where the item is: green when you have it
   worn or in your inventory (ready to use right now), blue when it's part of a
   recommended set bonus, and white for everything else you own (i.e. in the bank).

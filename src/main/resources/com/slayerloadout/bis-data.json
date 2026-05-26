@@ -8017,6 +8017,22 @@
     },
     {
       "names": [
+        "metal dragons",
+        "metal dragon"
+      ],
+      "subMonsters": [
+        "Bronze dragon",
+        "Iron dragon",
+        "Steel dragon",
+        "Mithril dragon",
+        "Adamant dragon",
+        "Rune dragon"
+      ],
+      "groupNote": "Pick the dragon you're fighting - they all count for the Metal dragons task.",
+      "notes": "Metal dragons can be any of six dragon types; choose which you're killing to see its best-in-slot gear. All breathe dragonfire, so keep antifire or anti-dragon protection up."
+    },
+    {
+      "names": [
         "bronze dragons",
         "bronze dragon"
       ],
@@ -8739,6 +8755,10 @@
         "size": 4
       },
       "notes": "Bring antifire; Ranged recommended (Ancient Cavern).",
+      "warningGear": [
+        "Super antifire potion(4)"
+      ],
+      "warningNote": "Mithril dragons have long-range dragonfire that can hit 50+, so keep antifire coverage up at all times. With a dragonfire shield/ward or anti-dragon shield you only need a regular antifire; without dragonfire-protection gear use an extended (super) antifire. Protect from Magic does NOT reduce dragonfire.",
       "styles": {
         "MELEE": {
           "HEAD": [
@@ -8972,6 +8992,10 @@
         "size": 5
       },
       "notes": "Requires Dragon Slayer II; super antifire needed.",
+      "warningGear": [
+        "Serpentine helm"
+      ],
+      "warningNote": "Adamant dragons fire a poison projectile (up to 25) - wear poison protection (Serpentine helm, or an antidote++ / antidote+) to cut it, or step away to dodge it. Their Blood Forfeit ranged attack pierces Protect from Missiles for ~20% of your current HP, so keep your HP moderate and use Vengeance to punish it. Keep antifire up for the dragonfire.",
       "styles": {
         "MELEE": {
           "HEAD": [
@@ -9205,6 +9229,10 @@
         "size": 5
       },
       "notes": "Requires Dragon Slayer II; super antifire needed.",
+      "warningGear": [
+        "Insulated boots"
+      ],
+      "warningNote": "Rune dragons' Electricity special arcs across nearby tiles for rapid 2-5 hits; Insulated boots reduce this to 1-2 (or move away). Their Life Leech ranged attack hits through Protect from Missiles and heals the dragon, so cast Vengeance when a purple hitsplat appears. Keep super antifire up for the dragonfire.",
       "styles": {
         "MELEE": {
           "HEAD": [

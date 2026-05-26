@@ -6,6 +6,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.Point;
 import java.awt.event.FocusAdapter;
@@ -53,10 +54,13 @@ class SlayerLoadoutPanel extends PluginPanel
 		void onManualTask(String monster);
 
 		void onClearOverride();
+
+		/** Resolve a monster name to its loadout (used by group-task sub-pickers). */
+		MonsterLoadout resolveMonster(String name);
 	}
 
 	/** Installed plugin version, shown in the panel footer. Bump on each release. */
-	private static final String VERSION = "1.6.0";
+	private static final String VERSION = "1.7.0";
 
 	private final JPanel content = new JPanel();
 	private final JLabel titleLabel = new JLabel();
@@ -77,6 +81,13 @@ class SlayerLoadoutPanel extends PluginPanel
 	private boolean assumePrayers = true;
 	private boolean preferBlowpipe = false;
 	private PlayerStats playerStats = PlayerStats.maxed();
+
+	// Group-task (e.g. Metal Dragons) picker state. The panel re-renders the selected
+	// sub-monster locally, so it keeps the last owned/itemManager context to rebuild on click.
+	private MonsterLoadout currentGroup;
+	private String selectedSubName;
+	private OwnedItemIndex lastOwned;
+	private ItemManager lastItemManager;
 
 	SlayerLoadoutPanel(TaskOverrideListener listener)
 	{
@@ -238,8 +249,39 @@ class SlayerLoadoutPanel extends PluginPanel
 		status.append("</html>");
 		statusLabel.setText(status.toString());
 
-		final AttackStyle recommended = loadout.getRecommendedStyle();
+		// Remember context so a group-picker button can re-render without a fresh update().
+		this.lastOwned = owned;
+		this.lastItemManager = itemManager;
 
+		// Group task (e.g. Metal Dragons): show a picker; the loadout appears once a
+		// sub-monster is chosen. A newly-selected group starts blank (no dragon picked).
+		if (loadout.isGroup())
+		{
+			if (loadout != currentGroup)
+			{
+				currentGroup = loadout;
+				selectedSubName = null;
+			}
+			renderGroup(loadout, owned, itemManager);
+			revalidate();
+			repaint();
+			return;
+		}
+		currentGroup = null;
+		selectedSubName = null;
+
+		final GridBagConstraints gc = newSectionConstraints();
+		renderSections(loadout, owned, itemManager, gc);
+
+		content.revalidate();
+		content.repaint();
+		revalidate();
+		repaint();
+	}
+
+	/** Shared GridBag constraints for stacking sections in {@link #content}. */
+	private static GridBagConstraints newSectionConstraints()
+	{
 		final GridBagConstraints gc = new GridBagConstraints();
 		gc.gridx = 0;
 		gc.gridy = 0;
@@ -247,12 +289,27 @@ class SlayerLoadoutPanel extends PluginPanel
 		gc.fill = GridBagConstraints.HORIZONTAL;
 		gc.anchor = GridBagConstraints.NORTH;
 		gc.insets = new Insets(0, 0, 8, 0);
+		return gc;
+	}
+
+	/** Render the gear sections (required, warning, spec, per-style) for a loadout. */
+	private void renderSections(MonsterLoadout loadout, OwnedItemIndex owned, ItemManager itemManager,
+		GridBagConstraints gc)
+	{
+		final AttackStyle recommended = loadout.getRecommendedStyle();
 
 		// Mandatory / protective gear for a special mechanic (e.g. Shayzien armour to
 		// block lizardman shaman poison). Shown first because survival comes before DPS.
 		if (!loadout.getRequiredGear().isEmpty())
 		{
 			content.add(buildRequiredSection(loadout, owned, itemManager), gc);
+			gc.gridy++;
+		}
+
+		// Suggested (non-mandatory) gear for a special mechanic - shown as a Warning.
+		if (!loadout.getWarningGear().isEmpty())
+		{
+			content.add(buildWarningSection(loadout, owned, itemManager), gc);
 			gc.gridy++;
 		}
 
@@ -276,11 +333,175 @@ class SlayerLoadoutPanel extends PluginPanel
 			content.add(buildStyleSection(style, style == recommended, loadout, owned, itemManager), gc);
 			gc.gridy++;
 		}
+	}
+
+	/** Render a group task: the dragon picker, then the chosen sub-monster's loadout. */
+	private void renderGroup(MonsterLoadout group, OwnedItemIndex owned, ItemManager itemManager)
+	{
+		content.removeAll();
+		final GridBagConstraints gc = newSectionConstraints();
+
+		content.add(buildDragonPicker(group), gc);
+		gc.gridy++;
+
+		if (selectedSubName == null)
+		{
+			final JLabel prompt = new JLabel("<html>Select a dragon above to see its recommended loadout.</html>");
+			prompt.setFont(FontManager.getRunescapeSmallFont());
+			prompt.setForeground(ColorScheme.LIGHT_GRAY_COLOR);
+			prompt.setAlignmentX(Component.LEFT_ALIGNMENT);
+			content.add(prompt, gc);
+			gc.gridy++;
+		}
+		else
+		{
+			final MonsterLoadout sub = listener.resolveMonster(selectedSubName);
+			if (sub == null)
+			{
+				final JLabel miss = new JLabel("<html>No gear data for " + escape(selectedSubName) + ".</html>");
+				miss.setFont(FontManager.getRunescapeSmallFont());
+				miss.setForeground(EMPTY_COLOR);
+				miss.setAlignmentX(Component.LEFT_ALIGNMENT);
+				content.add(miss, gc);
+				gc.gridy++;
+			}
+			else
+			{
+				renderSections(sub, owned, itemManager, gc);
+			}
+		}
 
 		content.revalidate();
 		content.repaint();
-		revalidate();
-		repaint();
+	}
+
+	/** The row of dragon buttons for a group task (2 per row), blank until one is picked. */
+	private JPanel buildDragonPicker(MonsterLoadout group)
+	{
+		final JPanel section = new JPanel(new BorderLayout());
+		section.setBackground(ColorScheme.DARKER_GRAY_COLOR);
+		section.setBorder(BorderFactory.createCompoundBorder(
+			BorderFactory.createLineBorder(ColorScheme.BRAND_ORANGE, 1),
+			BorderFactory.createEmptyBorder(6, 6, 6, 6)));
+		section.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+		final JLabel head = new JLabel("Choose a metal dragon");
+		head.setFont(FontManager.getRunescapeBoldFont());
+		head.setForeground(ColorScheme.BRAND_ORANGE);
+		head.setBorder(BorderFactory.createEmptyBorder(0, 0, 6, 0));
+		section.add(head, BorderLayout.NORTH);
+
+		final JPanel grid = new JPanel(new GridLayout(0, 2, 4, 4));
+		grid.setBackground(ColorScheme.DARKER_GRAY_COLOR);
+		for (String sub : group.getSubMonsters())
+		{
+			final JButton b = new JButton(shortDragonName(sub));
+			b.setFont(FontManager.getRunescapeSmallFont());
+			b.setFocusPainted(false);
+			if (sub.equalsIgnoreCase(selectedSubName))
+			{
+				b.setBackground(ColorScheme.BRAND_ORANGE);
+				b.setForeground(Color.BLACK);
+			}
+			b.addActionListener(e ->
+			{
+				selectedSubName = sub;
+				renderGroup(currentGroup, lastOwned, lastItemManager);
+				revalidate();
+				repaint();
+			});
+			grid.add(b);
+		}
+		section.add(grid, BorderLayout.CENTER);
+
+		final String note = group.getGroupNote();
+		if (note != null)
+		{
+			final JLabel noteLabel = new JLabel("<html><body style='width:180px'>" + escape(note) + "</body></html>");
+			noteLabel.setFont(FontManager.getRunescapeSmallFont());
+			noteLabel.setForeground(ColorScheme.LIGHT_GRAY_COLOR);
+			noteLabel.setBorder(BorderFactory.createEmptyBorder(6, 0, 0, 0));
+			section.add(noteLabel, BorderLayout.SOUTH);
+		}
+		return section;
+	}
+
+	/** "Bronze dragon" -> "Bronze" for a compact button label. */
+	private static String shortDragonName(String name)
+	{
+		if (name == null)
+		{
+			return "";
+		}
+		final String trimmed = name.trim();
+		final int idx = trimmed.toLowerCase(Locale.ENGLISH).indexOf(" dragon");
+		return idx > 0 ? trimmed.substring(0, idx) : trimmed;
+	}
+
+	/** Suggested (non-mandatory) gear for a special mechanic, shown as a yellow Warning. */
+	private JPanel buildWarningSection(MonsterLoadout loadout, OwnedItemIndex owned, ItemManager itemManager)
+	{
+		final JPanel section = new JPanel(new BorderLayout());
+		section.setBackground(ColorScheme.DARKER_GRAY_COLOR);
+		section.setBorder(BorderFactory.createCompoundBorder(
+			BorderFactory.createLineBorder(WARNING_COLOR, 1),
+			BorderFactory.createEmptyBorder(6, 6, 6, 6)));
+
+		final JLabel head = new JLabel("Warning");
+		head.setFont(FontManager.getRunescapeBoldFont());
+		head.setForeground(WARNING_COLOR);
+		head.setBorder(BorderFactory.createEmptyBorder(0, 0, 6, 0));
+		section.add(head, BorderLayout.NORTH);
+
+		final JPanel body = new JPanel();
+		body.setLayout(new BoxLayout(body, BoxLayout.Y_AXIS));
+		body.setBackground(ColorScheme.DARKER_GRAY_COLOR);
+
+		for (String itemName : loadout.getWarningGear())
+		{
+			final OwnedItemIndex.OwnedItem oi = owned == null ? null : owned.match(itemName);
+
+			final JPanel row = new JPanel();
+			row.setLayout(new BoxLayout(row, BoxLayout.X_AXIS));
+			row.setBackground(ColorScheme.DARKER_GRAY_COLOR);
+			row.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+			final JLabel icon = new JLabel();
+			icon.setPreferredSize(new Dimension(36, 32));
+			if (oi != null)
+			{
+				final AsyncBufferedImage image = itemManager.getImage(oi.id);
+				if (image != null)
+				{
+					image.addTo(icon);
+				}
+			}
+			row.add(icon);
+
+			final JLabel name = new JLabel(oi != null
+				? escape(itemName)
+				: "<html>" + escape(itemName) + " <span style='color:#996666'>(not owned)</span></html>");
+			name.setFont(FontManager.getRunescapeSmallFont());
+			name.setForeground(oi != null ? Color.WHITE : EMPTY_COLOR);
+			row.add(name);
+
+			body.add(row);
+		}
+
+		final String note = loadout.getWarningNote();
+		if (note != null)
+		{
+			final JLabel noteLabel = new JLabel("<html><body style='width:180px'>" + escape(note) + "</body></html>");
+			noteLabel.setFont(FontManager.getRunescapeSmallFont());
+			noteLabel.setForeground(ColorScheme.LIGHT_GRAY_COLOR);
+			noteLabel.setBorder(BorderFactory.createEmptyBorder(6, 0, 0, 0));
+			noteLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+			body.add(noteLabel);
+		}
+
+		section.add(body, BorderLayout.CENTER);
+		section.setAlignmentX(Component.LEFT_ALIGNMENT);
+		return section;
 	}
 
 	/** Ammunition families, used to match ammo to the chosen ranged weapon. */
@@ -296,6 +517,8 @@ class SlayerLoadoutPanel extends PluginPanel
 	// Blue: the item is part of a recommended set bonus (Void / Crystal / etc.).
 	private static final Color SET_COLOR = new Color(120, 170, 255);
 	private static final Color SPELL_COLOR = new Color(190, 150, 230);
+	// Yellow: a "Warning" - suggested (non-mandatory) gear for a special mechanic.
+	private static final Color WARNING_COLOR = new Color(220, 180, 60);
 
 	private static final class Pick
 	{
