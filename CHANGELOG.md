@@ -17,7 +17,9 @@ rather than a version tag, so version numbers below are a human-readable conveni
   ranged off-hand. The other common counts-for bosses (Vorkath, Cerberus, Kraken,
   Alchemical Hydra, Abyssal Sire) were already in the dataset and remain searchable.
 
-## [1.7.0] - Unreleased
+## [1.7.0] - 2026-05-26
+
+Released via [runelite/plugin-hub#12215](https://github.com/runelite/plugin-hub/pull/12215).
 
 ### Added
 - **Metal Dragons** task support. Metal dragons is a multi-monster task, so the panel now
