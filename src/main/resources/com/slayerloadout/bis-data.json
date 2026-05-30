@@ -22749,6 +22749,214 @@
           ]
         }
       }
+    },
+    {
+      "names": [
+        "royal titans",
+        "royal titan",
+        "branda the fire queen",
+        "eldric the ice king"
+      ],
+      "slayerLevel": 0,
+      "difficulty": "Boss",
+      "recommendedStyle": "MELEE",
+      "attributes": [
+        "giant"
+      ],
+      "meleeWeakness": "CRUSH",
+      "mageSpell": "Fire Wave (Standard)",
+      "notes": "Duo boss in the Asgarnia Ice Dungeon: Branda the Fire Queen and Eldric the Ice King (600 HP each, Defence 100). No requirements to enter. Counts for both Fire giants and Ice giants Slayer tasks - your Slayer helmet (i) only buffs the matching boss for your current task (Fire giants -> Branda; Ice giants -> Eldric). Mechanic-heavy: pray Protect from Melee for Stomp; clear icicle/fire walls and opposing-element elementals with Water/Fire Blast (or higher); avoid the phase-2 Elemental Blast safe-tile.",
+      "warningGear": [
+        "Twinflame staff",
+        "Antler guard"
+      ],
+      "warningNote": "Royal Titans is a mechanic-heavy duo. The Twinflame staff auto-swaps Fire/Water spells, so you can clear icicle/fire walls and one-shot the opposite-element elementals (Water vs fire elementals, Fire vs ice; they self-destruct for 8-10 in a 3x3 if ignored). The Antler guard is a useful ranged off-hand when you switch off melee. Bring a Lightbearer + spec weapon (Dragon claws / Burning claws) to repeat specs across the fight.",
+      "styles": {
+        "MELEE": {
+          "HEAD": [
+            "Slayer helmet (i)",
+            "Slayer helmet",
+            "Torva full helm",
+            "Oathplate helm",
+            "Inquisitor's great helm",
+            "Neitiznot faceguard",
+            "Helm of neitiznot"
+          ],
+          "CAPE": [
+            "Infernal cape",
+            "Fire cape",
+            "Mythical cape",
+            "Obsidian cape"
+          ],
+          "NECK": [
+            "Amulet of rancour",
+            "Amulet of torture",
+            "Amulet of fury",
+            "Amulet of glory"
+          ],
+          "WEAPON": [
+            "Scythe of vitur",
+            "Inquisitor's mace",
+            "Soulreaper axe",
+            "Dragon hunter lance",
+            "Osmumten's fang",
+            "Abyssal tentacle",
+            "Abyssal whip"
+          ],
+          "BODY": [
+            "Torva platebody",
+            "Oathplate chest",
+            "Inquisitor's hauberk",
+            "Bandos chestplate",
+            "Fighter torso"
+          ],
+          "SHIELD": [
+            "Avernic defender",
+            "Dragon defender"
+          ],
+          "LEGS": [
+            "Torva platelegs",
+            "Oathplate legs",
+            "Inquisitor's plateskirt",
+            "Bandos tassets"
+          ],
+          "HANDS": [
+            "Ferocious gloves",
+            "Barrows gloves"
+          ],
+          "FEET": [
+            "Avernic treads (max)",
+            "Avernic treads",
+            "Primordial boots",
+            "Aranea boots",
+            "Dragon boots"
+          ],
+          "RING": [
+            "Ultor ring",
+            "Berserker ring (i)",
+            "Lightbearer",
+            "Berserker ring"
+          ]
+        },
+        "RANGED": {
+          "HEAD": [
+            "Slayer helmet (i)",
+            "Masori mask (f)",
+            "Masori mask",
+            "Crystal helm",
+            "Armadyl helmet"
+          ],
+          "CAPE": [
+            "Dizana's quiver",
+            "Ava's assembler",
+            "Ava's accumulator"
+          ],
+          "NECK": [
+            "Necklace of anguish",
+            "Amulet of fury",
+            "Amulet of glory"
+          ],
+          "WEAPON": [
+            "Toxic blowpipe",
+            "Bow of faerdhinen (c)",
+            "Bow of faerdhinen",
+            "Eclipse atlatl",
+            "Zaryte crossbow",
+            "Dragon hunter crossbow",
+            "Armadyl crossbow"
+          ],
+          "BODY": [
+            "Masori body (f)",
+            "Masori body",
+            "Crystal body",
+            "Armadyl chestplate",
+            "Karil's leathertop"
+          ],
+          "SHIELD": [
+            "Twisted buckler",
+            "Dragonfire ward",
+            "Odium ward"
+          ],
+          "LEGS": [
+            "Masori chaps (f)",
+            "Masori chaps",
+            "Crystal legs",
+            "Armadyl chainskirt",
+            "Karil's leatherskirt"
+          ],
+          "HANDS": [
+            "Zaryte vambraces",
+            "Barrows gloves"
+          ],
+          "FEET": [
+            "Avernic treads (max)",
+            "Avernic treads",
+            "Pegasian boots"
+          ],
+          "RING": [
+            "Venator ring",
+            "Berserker ring (i)",
+            "Lightbearer",
+            "Archer ring (i)"
+          ]
+        },
+        "MAGIC": {
+          "HEAD": [
+            "Slayer helmet (i)",
+            "Ancestral hat",
+            "Virtus mask",
+            "Ahrim's hood"
+          ],
+          "CAPE": [
+            "Imbued god cape",
+            "God cape",
+            "Ardougne cloak 4",
+            "Infernal cape"
+          ],
+          "NECK": [
+            "Occult necklace",
+            "Amulet of fury",
+            "Amulet of glory"
+          ],
+          "WEAPON": [
+            "Twinflame staff",
+            "Purging staff",
+            "Kodai wand",
+            "Harmonised nightmare staff",
+            "Master wand"
+          ],
+          "BODY": [
+            "Ancestral robe top",
+            "Virtus robe top",
+            "Ahrim's robetop"
+          ],
+          "SHIELD": [
+            "Elidinis' ward (f)",
+            "Arcane spirit shield",
+            "Ancient wyvern shield"
+          ],
+          "LEGS": [
+            "Ancestral robe bottom",
+            "Virtus robe bottom",
+            "Ahrim's robeskirt"
+          ],
+          "HANDS": [
+            "Confliction gauntlets",
+            "Tormented bracelet",
+            "Barrows gloves"
+          ],
+          "FEET": [
+            "Avernic treads (max)",
+            "Eternal boots",
+            "Infinity boots"
+          ],
+          "RING": [
+            "Magus ring",
+            "Brimstone ring",
+            "Seers ring (i)"
+          ]
+        }
+      }
     }
   ]
 }

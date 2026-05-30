@@ -60,7 +60,7 @@ class SlayerLoadoutPanel extends PluginPanel
 	}
 
 	/** Installed plugin version, shown in the panel footer. Bump on each release. */
-	private static final String VERSION = "1.7.0";
+	private static final String VERSION = "1.8.0";
 
 	private final JPanel content = new JPanel();
 	private final JLabel titleLabel = new JLabel();

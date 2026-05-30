@@ -9,6 +9,17 @@ rather than a version tag, so version numbers below are a human-readable conveni
 ## [Unreleased]
 
 ### Added
+- **Royal Titans** added to the dataset - the duo boss (Branda the Fire Queen and Eldric
+  the Ice King) in the Asgarnia Ice Dungeon. Counts toward both Fire giants and Ice
+  giants Slayer tasks and is searchable via the preview field. Includes per-style BiS
+  pulled from the OSRS Wiki Strategies page and a Warning section flagging the Twinflame
+  staff (auto-swaps Fire/Water spells for walls and elementals) and the Antler guard
+  ranged off-hand. The other common counts-for bosses (Vorkath, Cerberus, Kraken,
+  Alchemical Hydra, Abyssal Sire) were already in the dataset and remain searchable.
+
+## [1.7.0] - Unreleased
+
+### Added
 - **Metal Dragons** task support. Metal dragons is a multi-monster task, so the panel now
   shows a picker with a button for each of the six dragons (Bronze, Iron, Steel, Mithril,
   Adamant, Rune). It starts blank until you choose one, then shows that dragon's
