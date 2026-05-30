@@ -8,6 +8,10 @@ rather than a version tag, so version numbers below are a human-readable conveni
 
 ## [Unreleased]
 
+## [1.8.0] - 2026-05-30
+
+Released via [runelite/plugin-hub#12290](https://github.com/runelite/plugin-hub/pull/12290).
+
 ### Added
 - **Royal Titans** added to the dataset - the duo boss (Branda the Fire Queen and Eldric
   the Ice King) in the Asgarnia Ice Dungeon. Counts toward both Fire giants and Ice
